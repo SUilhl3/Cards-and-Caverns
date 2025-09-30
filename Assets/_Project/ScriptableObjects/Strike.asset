@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1b953744d3459a41913095d5df85b34, type: 3}
+  m_Name: Strike
+  m_EditorClassIdentifier: 
+  cardBg: {fileID: 1223235648291439463, guid: 17246508ab0dea54490844620a7653cc, type: 3}
+  mainText: Deal 7 damage
+  cardImage: {fileID: -3342060666071740941, guid: 17246508ab0dea54490844620a7653cc, type: 3}
+  cardBorder: {fileID: 8729815903025848602, guid: 1b7928271e6eda64aaac1ae902b07a2d, type: 3}
+  cardNameHeader: {fileID: 4264372325054228927, guid: 17246508ab0dea54490844620a7653cc, type: 3}
+  cardName: Strike
+  cardTypeHeader: {fileID: 4264372325054228927, guid: 17246508ab0dea54490844620a7653cc, type: 3}
+  cardTypeText: Attack
+  cardCost: 1
+  energyCost: 1
+  damage: 7
+  defence: 5
+  hpRecoverAmount: 0
