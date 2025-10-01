@@ -746,8 +746,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000046711, y: -0.4334}
-  m_SizeDelta: {x: 98, y: 101}
+  m_AnchoredPosition: {x: 0.06141, y: -30.4506}
+  m_SizeDelta: {x: 98.186, y: 31.6962}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8935353218687118549
 CanvasRenderer:
@@ -949,7 +949,7 @@ GameObject:
   - component: {fileID: 7378811636718736250}
   - component: {fileID: 4127231882052883881}
   m_Layer: 5
-  m_Name: Card
+  m_Name: Flex & Pose
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1003,7 +1003,7 @@ MonoBehaviour:
   cardTypeHeader: {fileID: 4732990373917965419}
   cardTypeText: {fileID: 1798908808918236040}
   cardCost: {fileID: 5273700013821352353}
-  cardTemplate: {fileID: 11400000, guid: 90fb7647d8678bf46bd881cc5c17cd1d, type: 2}
+  cardTemplate: {fileID: 11400000, guid: a0605d27b93f95b45a6137c5e23d2bb1, type: 2}
 --- !u!1 &7888601515802291573
 GameObject:
   m_ObjectHideFlags: 0

@@ -459,6 +459,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Card
       objectReference: {fileID: 0}
+    - target: {fileID: 6479434496979630058, guid: f221031f84b3bbd47982ad6bb133f599, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7378811636718736250, guid: f221031f84b3bbd47982ad6bb133f599, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

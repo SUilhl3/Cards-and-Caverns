@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d1b953744d3459a41913095d5df85b34, type: 3}
-  m_Name: Strike
+  m_Name: Turtle
   m_EditorClassIdentifier: 
   cardBg: {fileID: 1223235648291439463, guid: 17246508ab0dea54490844620a7653cc, type: 3}
-  mainText: Deal 7 damage
+  mainText: Deal 5 damage and block 5 damage
   cardImage: {fileID: -3342060666071740941, guid: 17246508ab0dea54490844620a7653cc, type: 3}
   cardBorder: {fileID: 8729815903025848602, guid: 1b7928271e6eda64aaac1ae902b07a2d, type: 3}
   cardNameHeader: {fileID: 4264372325054228927, guid: 17246508ab0dea54490844620a7653cc, type: 3}
@@ -23,8 +23,8 @@ MonoBehaviour:
   cardCost: 1
   target: {fileID: 0}
   energyCost: 1
-  damage: 7
-  defence: 0
+  damage: 5
+  defence: 5
   hpRecoverAmount: 0
   weakenAmount: 0
   vulnerableAmount: 0

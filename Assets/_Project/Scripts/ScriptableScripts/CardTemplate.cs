@@ -23,20 +23,32 @@ public class CardTemplate : ScriptableObject
     [Tooltip("The sprite for the card type header")]
     public Sprite cardTypeHeader;
     [Tooltip("Display type of card")]
-    public string cardTypeText;
+    public string cardTypeText; //leaving  as a string because I do not want to make enum or anything right now
 
     [Tooltip("Sprite for cards cost")]
     public string cardCost;
 
+
     [Header("Card data")]
+    [Tooltip("Target the card will effect, either player or an enemy selected")]
+    public GameObject target; //will likely make a unit parent class that has enemy and player derived from it
+    
     [Tooltip("Energy require to use this card")]
     public int energyCost = 1;
 
     [Tooltip("Default damage to enemy when using this card")]
     public int damage = 7; 
     [Tooltip("Default defence gained when using this card")]
-    public int defence = 5;
+    public int defence = 5; //could have this negative to decrease block if applicable
     [Tooltip("Health recovered when using this card")]
-    public int hpRecoverAmount = 0;
+    public int hpRecoverAmount = 0; //if negative, should damage the player
 
+    [Tooltip("How many 'weaken' status effects to apply on enemy when using this card")]
+    public int weakenAmount = 0;
+    [Tooltip("How many 'vulnerable' status effects to apply on enemy when using this  card")]
+    public int vulnerableAmount = 0;
+
+    //could use additive ints to add buffs, for example:
+    [Tooltip("Adds strength to player, 1 str means player adds 1 damage to all attacks")]
+    public int strAddAmount = 2;
 }

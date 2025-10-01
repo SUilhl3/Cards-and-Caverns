@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1680
     height: 959
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: Inspector
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 332}
   m_MaxSize: {x: 10000, y: 10000}
@@ -119,7 +119,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 100}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 50
+  controlID: 51
   draggingID: 0
 --- !u!114 &6
 MonoBehaviour:
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 51
+  controlID: 52
   draggingID: 0
 --- !u!114 &7
 MonoBehaviour:
@@ -172,7 +172,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 50}
   m_MaxSize: {x: 24288, y: 8096}
   vertical: 0
-  controlID: 52
+  controlID: 53
   draggingID: 0
 --- !u!114 &8
 MonoBehaviour:
@@ -399,8 +399,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Game\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 679
-    y: 24
+    x: 678
+    y: 79
     width: 644
     height: 544
   m_SerializedDataModeController:
@@ -501,7 +501,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 24
+    y: 79
     width: 204
     height: 544
   m_SerializedDataModeController:
@@ -518,7 +518,7 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: beb80000
       m_LastClickedID: 0
       m_ExpandedIDs: 0afbffff
       m_RenameOverlay:
@@ -566,8 +566,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Scene\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 206
-    y: 24
+    x: 205
+    y: 79
     width: 471
     height: 544
   m_SerializedDataModeController:
@@ -1152,9 +1152,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: 0, y: 0, z: 0}
+    m_Target: {x: 321.5557, y: -228.15102, z: -0.30676767}
     speed: 2
-    m_Value: {x: 0, y: 0, z: 0}
+    m_Value: {x: 321.5557, y: -228.15102, z: -0.30676767}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1204,9 +1204,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 10
+    m_Target: 190.021
     speed: 2
-    m_Value: 10
+    m_Value: 190.021
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -1259,7 +1259,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 594
+    y: 649
     width: 1323
     height: 307
   m_SerializedDataModeController:
@@ -1284,7 +1284,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/_Project/Scripts/ScriptableScripts
+    - Assets/_Project/Prefabs/Cards
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -1294,16 +1294,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/_Project/Scripts/ScriptableScripts
+  - Assets/_Project/Prefabs/Cards
   m_LastFoldersGridSize: -1
   m_LastProjectPath: F:\Cards-And-Caverns\.git\Cards-and-Caverns
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 5}
-    m_SelectedIDs: 06b20000
-    m_LastClickedID: 45574
-    m_ExpandedIDs: 00000000f6af0000f8af0000faaf0000fcaf0000feaf000000b0000002b0000004b00000
+    scrollPos: {x: 0, y: 33}
+    m_SelectedIDs: e4b20000
+    m_LastClickedID: 45796
+    m_ExpandedIDs: 0000000060b2000062b2000064b2000066b2000068b200006ab200006cb200006eb2000072b2000074b2000076b20000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1332,7 +1332,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000f6af0000f8af0000faaf0000fcaf0000feaf000000b0000002b0000004b00000
+    m_ExpandedIDs: 0000000060b2000062b2000064b2000066b2000068b200006ab200006cb200006eb2000070b2000072b2000074b2000076b20000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1361,7 +1361,7 @@ MonoBehaviour:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: c6230000840200008cb200004eb60000acbd00003ed300006eba0000000000005eb6000048b60000a4cd00001ab20000
+    m_ExpandedInstanceIDs: c6230000840200008cb200004eb60000acbd00003ed300006eba0000000000005eb6000048b60000a4cd00001ab200009ab00000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1447,8 +1447,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Inspector\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 1325
-    y: 24
+    x: 1324
+    y: 79
     width: 355
     height: 877
   m_SerializedDataModeController:
