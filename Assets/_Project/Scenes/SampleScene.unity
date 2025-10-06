@@ -2191,6 +2191,58 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 947618390}
   m_CullTransparentMesh: 1
+--- !u!1 &1146118746
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1146118748}
+  - component: {fileID: 1146118747}
+  m_Layer: 0
+  m_Name: Relic Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1146118747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1146118746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1de6ec4f13b5a3a4cab8a0d1055b2870, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allAvailableRelics:
+  - {fileID: 11400000, guid: 8d262d6cb67f1a14fbc433b412640d6a, type: 2}
+  - {fileID: 11400000, guid: 2ff450612a55fd740a001ede144ab4b5, type: 2}
+  - {fileID: 11400000, guid: 35b0770dde115ce449fc81d632305ed5, type: 2}
+  - {fileID: 11400000, guid: 199d4d0460253f3449ffb619ea32b5be, type: 2}
+  - {fileID: 11400000, guid: 07a25acb30e548a4fa193da6a2657c77, type: 2}
+  relicList: []
+  player: {fileID: 0}
+--- !u!4 &1146118748
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1146118746}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 837.5, y: 264.97318, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1150154623
 GameObject:
   m_ObjectHideFlags: 0
@@ -4619,3 +4671,4 @@ SceneRoots:
   - {fileID: 848308681}
   - {fileID: 793860632}
   - {fileID: 1831535184}
+  - {fileID: 1146118748}

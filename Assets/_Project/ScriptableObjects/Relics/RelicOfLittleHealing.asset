@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63259e651c6e2f24e8a064622faaa9c3, type: 3}
   m_Name: RelicOfLittleHealing
   m_EditorClassIdentifier: 
-  relicName: 
-  relicDescription: 
+  relicName: Relic Of Little Healing
+  relicDescription: Regain 5 hp at the end of a battle
   relicImg: {fileID: 0}
   healAmt: 5

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19170dad34631a84b96cec8175d67d64, type: 3}
   m_Name: RelicOfLittleCoin
   m_EditorClassIdentifier: 
-  relicName: 
-  relicDescription: 
+  relicName: Relic Of Little Coin
+  relicDescription: Increase the amount of winnings after a battle by 25%
   relicImg: {fileID: 0}
   coinMultiplier: 1.25

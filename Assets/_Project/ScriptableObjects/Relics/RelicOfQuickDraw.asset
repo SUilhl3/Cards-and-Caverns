@@ -9,10 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed71692df779d514292f8205ca5b76a7, type: 3}
-  m_Name: RelicOfGreatCoin
+  m_Script: {fileID: 11500000, guid: fd823490aa9d9cb408df5a32b74ee79a, type: 3}
+  m_Name: RelicOfQuickDraw
   m_EditorClassIdentifier: 
-  relicName: Relic Of Great Coin
-  relicDescription: Increase the amount of winnings after a battle by 50%
+  relicName: Relic Of Quick Draw
+  relicDescription: Allows the player to draw an extra card at the start of their
+    turn
   relicImg: {fileID: 0}
-  coinMultiplier: 1.5
+  numExtraCards: 1

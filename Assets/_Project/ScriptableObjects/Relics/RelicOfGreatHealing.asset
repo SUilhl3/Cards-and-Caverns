@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b08f0587f71864f9ba901530f1f891, type: 3}
   m_Name: RelicOfGreatHealing
   m_EditorClassIdentifier: 
-  relicName: 
-  relicDescription: 
+  relicName: Relic Of Great Healing
+  relicDescription: Heal 15 hp at the end of a battle
   relicImg: {fileID: 0}
   healAmt: 15
