@@ -19,6 +19,8 @@ public class RelicTemplate : ScriptableObject
     //something like increasing your health after a battle by a % or number
     public virtual void OnBattleFinish(GameObject player) { }
 
-    //can add more if needed
+    //takes effect during battle 
+    //something like increasing attack if your health goes below a %
+    public virtual void DuringBattle(GameObject player) { }
 
 }
