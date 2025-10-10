@@ -1,8 +1,29 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream
+<<<<<<<< Updated upstream:Assets/_Project/Animations/EnemyGraphics.controller.meta
 guid: 9c886e9ed094e2145b0f0fc6ba889178
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 9100000
+========
+guid: 81c9c31ccdc486048a75b715b8b9e984
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+>>>>>>>> Stashed changes:Assets/_Project/Animations/BatEnemy_Idle.anim.meta
+=======
+<<<<<<<< Updated upstream:Assets/_Project/Animations/BatEnemy_Idle.anim.meta
+guid: 2b27be2076ac74e4eac7ba588a6ece96
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+========
+guid: 76ccb0f93bc62464eb7bc2244eecbbdb
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 9100000
+>>>>>>>> Stashed changes:Assets/_Project/Animations/EnemyGraphics.controller.meta
+>>>>>>> Stashed changes
   userData: 
   assetBundleName: 
   assetBundleVariant: 

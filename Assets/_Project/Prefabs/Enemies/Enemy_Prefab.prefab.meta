@@ -1,6 +1,16 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream
+<<<<<<<< Updated upstream:Assets/_Project/Prefabs/Enemies/Enemy_Prefab.prefab.meta
 guid: 94717e9fd14bfe7439f1db3240c7d7ef
 PrefabImporter:
+========
+guid: bea26ddeb11e79b45bd4a486df718dc9
+DefaultImporter:
+>>>>>>>> Stashed changes:Assets/_Project/Scenes/OptionsMenu.unity.meta
+=======
+guid: d5df013bac3efb14b837defdeb19e666
+PrefabImporter:
+>>>>>>> Stashed changes
   externalObjects: {}
   userData: 
   assetBundleName: 

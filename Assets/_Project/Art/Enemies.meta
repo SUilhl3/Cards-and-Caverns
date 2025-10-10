@@ -1,5 +1,17 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream
+<<<<<<<< Updated upstream:Assets/_Project/Art/Enemies.meta
 guid: 19bd24bee309be94a95d846407f76f03
+========
+guid: 0cc0d07acd69a1c49a7afaf20b8c8f84
+>>>>>>>> Stashed changes:Assets/_Project/Prefabs/Enemies.meta
+=======
+<<<<<<<< Updated upstream:Assets/TextMesh Pro.meta
+guid: aa3c58093c7f1f541b3c2c5ae89b0cb0
+========
+guid: 239bd26d51fc6ac48baaacfe098d26bc
+>>>>>>>> Stashed changes:Assets/_Project/Art/Enemies.meta
+>>>>>>> Stashed changes
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

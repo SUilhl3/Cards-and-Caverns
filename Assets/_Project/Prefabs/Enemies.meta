@@ -1,5 +1,17 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream
+<<<<<<<< Updated upstream:Assets/_Project/Prefabs/Enemies.meta
 guid: da615028d09d0b6478a0fc1919fd499b
+========
+guid: da85e9d94a1cf6544bb595889c31b060
+>>>>>>>> Stashed changes:Assets/_Project/Scripts/Enemey.meta
+=======
+<<<<<<<< Updated upstream:Assets/_Project/Art/Enemies.meta
+guid: 19bd24bee309be94a95d846407f76f03
+========
+guid: 0cc0d07acd69a1c49a7afaf20b8c8f84
+>>>>>>>> Stashed changes:Assets/_Project/Prefabs/Enemies.meta
+>>>>>>> Stashed changes
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
