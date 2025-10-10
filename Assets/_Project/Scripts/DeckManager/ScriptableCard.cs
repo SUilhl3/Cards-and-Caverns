@@ -9,7 +9,6 @@ public class ScriptableCard : ScriptableObject
   
     [field: SerializeField] public string CardName { get; private set; } 
     [field: SerializeField, TextArea] public string CardDescription { get; private set; } 
-    [field: SerializeField] public int PlayCost { get; private set; }
     [field: SerializeField] public Sprite Image { get; private set; }
     [field: SerializeField] public CardElement Element { get; private set; }
     [field: SerializeField] public CardEffectType EffectType { get; private set; }

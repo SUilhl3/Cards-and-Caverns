@@ -16,7 +16,6 @@ public class CardUI : MonoBehaviour
     [SerializeField] private Image _elementBackground;
     [SerializeField] private Image _rarityBackground;
 
-    [SerializeField] private TextMeshProUGUI _playCost;
     [SerializeField] private TextMeshProUGUI _cardName;
     [SerializeField] private TextMeshProUGUI _cardType;
     [SerializeField] private TextMeshProUGUI _cardDescription;
@@ -68,7 +67,6 @@ public class CardUI : MonoBehaviour
 
         _cardName.text = _card.CardData.CardName;
         _cardDescription.text = _card.CardData.CardDescription;
-        _playCost.text = _card.CardData.PlayCost.ToString();
     }
 
     private void SetCardEffectTypeText()
@@ -87,27 +85,32 @@ public class CardUI : MonoBehaviour
         }
     }
 
-    private void SetRarityBackground()
+ private void SetRarityBackground()
+{
+    switch (_card.CardData.Rarity)
     {
-        switch (_card.CardData.Rarity)
-        {
-            case CardRarity.Basic:
-                _rareRarityBackground.GetComponent<Image>().enabled = false;
-                break;
-            case CardRarity.Common:
-                _rarityBackground.sprite = _commonRarityBackground;
-                break;
-            case CardRarity.Rare:
-                _rarityBackground.sprite = _rareRarityBackground;
-                break;
-            case CardRarity.Epic:
-                _rarityBackground.sprite = _epicRarityBackground;
-                break;
-            case CardRarity.Legendary:
-                _rarityBackground.sprite = _legendaryRarityBackground;
-                break;
-        }
+        case CardRarity.Basic:
+            _rarityBackground.enabled = false;
+            break;
+        case CardRarity.Common:
+            _rarityBackground.enabled = true;
+            _rarityBackground.sprite = _commonRarityBackground;
+            break;
+        case CardRarity.Rare:
+            _rarityBackground.enabled = true;
+            _rarityBackground.sprite = _rareRarityBackground;
+            break;
+        case CardRarity.Epic:
+            _rarityBackground.enabled = true;
+            _rarityBackground.sprite = _epicRarityBackground;
+            break;
+        case CardRarity.Legendary:
+            _rarityBackground.enabled = true;
+            _rarityBackground.sprite = _legendaryRarityBackground;
+            break;
     }
+}
+
 
     private void SetElementFrame()
     {
