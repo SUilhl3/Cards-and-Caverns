@@ -12,7 +12,7 @@ public class CoinCount : MonoBehaviour
         UpdateCoinDisplay();
     }
 
-    void Update()
+  /*  void Update()
     {
         if (Input.GetButtonDown("Fire1"))
         {
@@ -20,7 +20,7 @@ public class CoinCount : MonoBehaviour
             PlayerPrefs.SetInt("amount", count);
             UpdateCoinDisplay();
         }
-    }
+    }*/
 
     void UpdateCoinDisplay()
     {
