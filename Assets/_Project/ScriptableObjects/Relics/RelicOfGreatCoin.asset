@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   relicName: Relic Of Great Coin
   relicDescription: Increase the amount of winnings after a battle by 50%
-  relicImg: {fileID: 0}
+  relicImg: {fileID: 21300000, guid: 817c5cbc269d2b344848a36aab84b6cf, type: 3}
   coinMultiplier: 1.5

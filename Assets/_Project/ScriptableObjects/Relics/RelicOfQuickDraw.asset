@@ -15,5 +15,5 @@ MonoBehaviour:
   relicName: Relic Of Quick Draw
   relicDescription: Allows the player to draw an extra card at the start of their
     turn
-  relicImg: {fileID: 0}
+  relicImg: {fileID: 21300000, guid: ed109a88c2ee6354880996aa8af5f526, type: 3}
   numExtraCards: 1

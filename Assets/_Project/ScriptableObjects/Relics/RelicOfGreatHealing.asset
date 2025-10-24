@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   relicName: Relic Of Great Healing
   relicDescription: Heal 15 hp at the end of a battle
-  relicImg: {fileID: 0}
+  relicImg: {fileID: 21300000, guid: 25dd3a93ef6a6224798da496bd5b80e0, type: 3}
   healAmt: 15

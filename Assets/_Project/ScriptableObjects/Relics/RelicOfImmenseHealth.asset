@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   relicName: Relic Of Immense Health
   relicDescription: Permanently increases your health by 20 points
-  relicImg: {fileID: 0}
+  relicImg: {fileID: 21300000, guid: 1564db2fd898b304bb82d50733c8aa9a, type: 3}
   healthIncrease: 20
