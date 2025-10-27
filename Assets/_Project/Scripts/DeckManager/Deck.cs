@@ -18,6 +18,9 @@ public class Deck : MonoBehaviour
 
     public List<Card> HandCards { get; private set; } = new();
 
+
+    private bool isDiscardPileVisible = false;
+
     #endregion
 
     #region Methods
@@ -90,6 +93,53 @@ public class Deck : MonoBehaviour
             _discardPile.Add(card);
             card.gameObject.SetActive(false);
         }
+    }
+
+
+    public void DisplayDiscardPile()
+    {
+        foreach(Card card in _discardPile)
+        {
+            card.gameObject.SetActive(true);
+        }
+    }
+
+    public void HideDiscardPile()
+    {
+        foreach (Card card in _discardPile)
+        {
+            card.gameObject.SetActive(false);
+        }
+    }
+
+    public void DisplayPile()
+    {
+        foreach (Card card in _deckPile)
+        {
+            card.gameObject.SetActive(true);
+        }
+    }
+
+    public void HideDeckPile()
+    {
+        foreach (Card card in _deckPile)
+        {
+            card.gameObject.SetActive(false);
+        }
+    }
+
+    public void DisplayDiscardPileButton()
+    {
+        if (isDiscardPileVisible) { DisplayPile(); }
+        else { DisplayDiscardPile();}
+        isDiscardPileVisible = !isDiscardPileVisible;
+    }
+
+    public void DisplayPileButton()
+    {
+        if (isDiscardPileVisible) { HideDiscardPile(); }
+        else { HideDeckPile(); }
+        isDiscardPileVisible = !isDiscardPileVisible;
     }
 
     #endregion
