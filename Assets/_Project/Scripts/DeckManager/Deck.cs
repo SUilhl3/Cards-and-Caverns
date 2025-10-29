@@ -20,6 +20,7 @@ public class Deck : MonoBehaviour
 
 
     private bool isDiscardPileVisible = false;
+    private bool isDeckVisible = false;
 
     #endregion
 
@@ -112,7 +113,7 @@ public class Deck : MonoBehaviour
         }
     }
 
-    public void DisplayPile()
+    public void DisplayDeckPile()
     {
         foreach (Card card in _deckPile)
         {
@@ -128,18 +129,30 @@ public class Deck : MonoBehaviour
         }
     }
 
-    public void DisplayDiscardPileButton()
+    public void toggleDiscardPile()
     {
-        if (isDiscardPileVisible) { DisplayPile(); }
-        else { DisplayDiscardPile();}
+        if (isDiscardPileVisible) {HideDiscardPile();}
+        else {DisplayDiscardPile();}
         isDiscardPileVisible = !isDiscardPileVisible;
     }
 
-    public void DisplayPileButton()
+    public void ToggleDeckPile()
     {
-        if (isDiscardPileVisible) { HideDiscardPile(); }
-        else { HideDeckPile(); }
-        isDiscardPileVisible = !isDiscardPileVisible;
+        Debug.Log($"_deckPile count before display: {_deckPile.Count}");
+        Debug.Log($"_discardPile count before display: {_discardPile.Count}");
+        if (isDeckVisible) {HideDeckPile();}
+        else { DisplayDeckPile(); }
+        isDeckVisible = !isDeckVisible;
+    }
+
+    public void DisplayDiscardPileButton()
+    {
+        toggleDiscardPile();
+    }
+
+    public void DisplayDeckButton()
+    {
+        ToggleDeckPile();
     }
 
     #endregion
