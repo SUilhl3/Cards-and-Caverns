@@ -18,3 +18,9 @@ MonoBehaviour:
   <Element>k__BackingField: 0
   <EffectType>k__BackingField: 0
   <Rarity>k__BackingField: 0
+  <Cost>k__BackingField: 1
+  <Target>k__BackingField: 2
+  <Effects>k__BackingField:
+  - kind: 0
+    value: 5
+    statusId: 

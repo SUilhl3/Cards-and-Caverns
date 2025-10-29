@@ -6,6 +6,7 @@ public class Combatant : MonoBehaviour
     public string combatantName = "Enemy";
     public int maxHealth = 30;
     public int currentHealth;
+    public int block = 0;
 
     public TextMeshProUGUI healthText;
 
@@ -17,18 +18,23 @@ public class Combatant : MonoBehaviour
         UpdateHealthText();
         _animController = GetComponent<EnemyAnimationController>();
     }
+    public void GainBlock(int amount)
+    {
+        block = Mathf.Max(0, block + Mathf.Max(0, amount));
+    }
+
+
+    public void ResetBlock() { block = 0; }
 
     public void TakeDamage(int amount)
     {
-        currentHealth -= amount;
-        if (currentHealth < 0) currentHealth = 0;
-
+        int dmg = Mathf.Max(0, amount);
+        int fromBlock = Mathf.Min(block, dmg);
+        block -= fromBlock;
+        int hpLoss = dmg - fromBlock;
+        if (hpLoss > 0) currentHealth = Mathf.Max(0, currentHealth - hpLoss);
         UpdateHealthText();
-
-        _animController?.PlayHit(); // play hit when taking damage
-
-        if (currentHealth <= 0)
-            Die();
+        if (currentHealth <= 0) Die();
     }
 
     // Add target parameter to know who is being attacked
