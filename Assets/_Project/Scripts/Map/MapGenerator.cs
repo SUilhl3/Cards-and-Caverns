@@ -17,7 +17,7 @@ public class MapGenerator : MonoBehaviour
     [Range(0.1f, 1f), SerializeField] private float chanceofMiddlePath;
     [Range(0f, 1f), SerializeField] private float chanceofSidePath;
     [Range(0.9f, 5f), SerializeField] private float mSpaceBetweenLines = 2.5f;
-    [Range(1f,5.5f),  SerializeField] private float MinimumConnections = 3f;
+    [Range(1f, 5.5f), SerializeField] private float MinimumConnections = 3f;
 
     private PointOfEvents[][] _poePerFloor;
     private readonly List<PointOfEvents> POE= new();
@@ -33,8 +33,9 @@ public class MapGenerator : MonoBehaviour
 
     public void ReCreateBoard()
     {
-        lineLegnth = pathPrefab.GetComponent<MeshFilter>().sharedMesh.bounds.size.z * pathPrefab.transform.localScale.z;
-        lineHeigth = pathPrefab.GetComponent<MeshFilter>().sharedMesh.bounds.size.y * pathPrefab.transform.localScale.y;
+        SpriteRenderer sp = pathPrefab.GetComponent<SpriteRenderer>();
+        lineLegnth = sp.bounds.size.x;
+        lineHeigth = sp.bounds.size.y;
         DestroyImmediateAllChildren(boardContainer);
         numOfConnections = 0;
         GenerateRandomSeed();

@@ -196,7 +196,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -406,11 +406,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boardContainer: {fileID: 308996215}
   pointOfEventsPrefabs:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 7002299268239839084, guid: a651efcd25436024cb78eacdc7d151d2, type: 3}
+  - {fileID: 4544994086890958302, guid: 161818922651b46498ce8397c3660ad2, type: 3}
+  - {fileID: 7781009541524810314, guid: 6536095f634975b43a315916c480ffa7, type: 3}
+  - {fileID: 4510992399848833663, guid: 20d7953362d70d94a9d385491e7e1ccc, type: 3}
+  - {fileID: 2525172976416707533, guid: 9e51487cf5a21174d99e3fa3238edb7b, type: 3}
   pathPrefab: {fileID: 4127421540674100996, guid: 4b4315c4f5f4cd14aa59e3f0654748a9, type: 3}
   numOfStartingPoints: 4
   mapLenght: 10
