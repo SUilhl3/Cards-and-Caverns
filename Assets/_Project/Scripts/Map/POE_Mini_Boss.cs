@@ -18,6 +18,13 @@ public class POE_Mini_Boss : MonoBehaviour
         Debug.Log("Loading Mini Boss Scene...");
 
     }
+    public void LoadMiniBossFight()
+    {
+        string thisButtonId = gameObject.name; // or assign explicitly
+        List<string> siblings = new List<string> { "SiblingButton1", "SiblingButton2" }; // populate as needed
+
+        OnOptionButtonClicked(thisButtonId, siblings);
+    }
     void Start()
     {
         if (PlayerPrefs.GetInt("OptionChosen", 0) == 1)

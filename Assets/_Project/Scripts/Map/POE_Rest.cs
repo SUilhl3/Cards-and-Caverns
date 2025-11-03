@@ -34,7 +34,13 @@ public class POE_Rest : MonoBehaviour
             }
         }
     }
+    public void Rest()
+    {
+        string thisButtonId = gameObject.name; // or assign explicitly
+        List<string> siblings = new List<string> { "SiblingButton1", "SiblingButton2" }; // populate as needed
 
+        OnOptionButtonClicked(thisButtonId, siblings);
+    }
     void DisableButtonById(string buttonId)
     {
         // Find button in scene by name or stored reference and disable interactability

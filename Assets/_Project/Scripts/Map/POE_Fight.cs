@@ -18,6 +18,13 @@ public class POE_Fight : MonoBehaviour
         Debug.Log("Loading battle...");
 
     }
+     public void LoadFight()
+    {
+        string thisButtonId = gameObject.name; // or assign explicitly
+        List<string> siblings = new List<string> { "SiblingButton1", "SiblingButton2" }; // populate as needed
+
+        OnOptionButtonClicked(thisButtonId, siblings);
+    }
     void Start()
     {
         if (PlayerPrefs.GetInt("OptionChosen", 0) == 1)

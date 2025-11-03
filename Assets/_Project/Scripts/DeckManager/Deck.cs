@@ -12,9 +12,12 @@ public class Deck : MonoBehaviour
     [SerializeField] private CardCollection _playerDeck;
     [SerializeField] private Card _cardPrefab; 
     [SerializeField] private Canvas _cardCanvas;
+    [SerializeField] private bool discardPiledEdited = false;
+    [SerializeField] private bool deckPileEdited = false;
 
     private List<Card> _deckPile = new();
     private List<Card> _discardPile = new();
+    private List<Card> _nextHandCards = new();
 
     public List<Card> HandCards { get; private set; } = new();
 
@@ -69,20 +72,52 @@ public class Deck : MonoBehaviour
 
     public void DrawHand(int amount = 5)
     {
-        for (int i = 0; i < amount; i++)
+        //for (int i = 0; i < amount; i++)
+        //{
+        //    if (_deckPile.Count <= 0)
+        //    {
+        //        _discardPile = _deckPile;
+        //        _discardPile.Clear();
+        //        ShuffleDeck();
+        //    }
+        //    if (_deckPile.Count > 0)
+        //    {
+        //        HandCards.Add(_deckPile[0]);
+        //        _deckPile[0].gameObject.SetActive(true);
+        //        _deckPile.RemoveAt(0);
+        //    }
+        //}
+
+        Card cardToDraw = null;
+        if(_nextHandCards.Count > 0)
         {
-            if (_deckPile.Count <= 0)
+            cardToDraw = _nextHandCards[0];
+            _nextHandCards.RemoveAt(0);
+            _deckPile.Remove(cardToDraw);
+        }
+        else
+        {
+            if(_deckPile.Count == 0)
             {
-                _discardPile = _deckPile;
+                _deckPile.AddRange(_discardPile);
                 _discardPile.Clear();
-                ShuffleDeck();
+                if (!discardPiledEdited && !discardPiledEdited)
+                {
+                    ShuffleDeck();
+                }
+                discardPiledEdited = false;
+                deckPileEdited = false;
             }
             if (_deckPile.Count > 0)
             {
-                HandCards.Add(_deckPile[0]);
-                _deckPile[0].gameObject.SetActive(true);
+                cardToDraw = _deckPile[0];
                 _deckPile.RemoveAt(0);
             }
+        }
+        if (cardToDraw != null)
+        {
+            HandCards.Add(cardToDraw);
+            cardToDraw.gameObject.SetActive(true);
         }
     }
 
@@ -96,6 +131,31 @@ public class Deck : MonoBehaviour
         }
     }
 
+    public void MoveDiscardCard(int oldIndex, int newIndex)
+    {
+        if(oldIndex < 0 || oldIndex >= _discardPile.Count || newIndex < 0 || newIndex >= _discardPile.Count)
+        {
+            return;
+        }
+
+        var card = _discardPile[oldIndex];
+        _discardPile.RemoveAt(oldIndex);
+        _discardPile.Insert(newIndex, card);
+        discardPiledEdited = true;
+
+    }
+
+    public void RefillDeckFromDiscardInOrder()
+    {
+        _deckPile.Clear();
+        _deckPile.AddRange(_discardPile);  // preserves discard pile order
+        _discardPile.Clear();
+    }
+
+    public void SetNextHandEditedCards(List<Card> eligibleCards)
+    {
+        _nextHandCards = new List<Card>(eligibleCards);
+    }
 
     public void DisplayDiscardPile()
     {

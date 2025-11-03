@@ -35,6 +35,13 @@ public class POE_Shop : MonoBehaviour
             }
         }
     }
+    public void Shop()
+    {
+        string thisButtonId = gameObject.name; // or assign explicitly
+        List<string> siblings = new List<string> { "SiblingButton1", "SiblingButton2" }; // populate as needed
+
+        OnOptionButtonClicked(thisButtonId, siblings);
+    }
 
     void DisableButtonById(string buttonId)
     {
