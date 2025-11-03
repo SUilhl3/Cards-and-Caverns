@@ -8,7 +8,7 @@ public class SoundSettings : MonoBehaviour
     public void SetMasterVolume(float sliderValue)
     {
         float dB = Mathf.Log10(Mathf.Clamp(sliderValue, 0.0001f, 1f)) * 20f;
-        masterMixer.SetFloat("MasterVolume", dB);
+        masterMixer.SetFloat("Master", dB);
     }
 
     public void SetMusicVolume(float sliderValue)
