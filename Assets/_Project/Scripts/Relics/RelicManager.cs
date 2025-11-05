@@ -8,6 +8,31 @@ public class RelicManager : MonoBehaviour
     public List<RelicTemplate> relicList = new List<RelicTemplate>(); // list of relics player acquired
     public GameObject player;
 
+    //just for testing for now
+    private void Update()
+    {
+        //adding random relic
+        if(Input.GetKeyDown(KeyCode.V))
+        {
+            SelectRandomRelic();
+        }
+      
+        //testing relic method calls
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            OnBattleStartCalls();
+        }
+
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            OnBattleFinishCalls();
+        }
+
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            DuringBattleCalls();
+        }
+    }
     //selects a random relic from the list and adds it to the player 
     //might need to add weights or lower % chance for higher value relics later
     public void SelectRandomRelic ()
@@ -15,6 +40,7 @@ public class RelicManager : MonoBehaviour
         int chosenRelic = Random.Range(0, allAvailableRelics.Count);
         RelicTemplate relicToAdd = allAvailableRelics[chosenRelic];
         AddRelic(relicToAdd);
+        allAvailableRelics.Remove(relicToAdd); //remove the added relic to avoid duplicates
     }
 
     //adds a relic to the list and calls the onAcquire method
@@ -39,6 +65,15 @@ public class RelicManager : MonoBehaviour
         foreach(var relic in relicList)
         {
             relic.OnBattleFinish(player);
+        }
+    }
+
+    //calls all the DuringBattle methods for each relic
+    public void DuringBattleCalls()
+    {
+        foreach (var relic in relicList)
+        {
+            relic.DuringBattle(player);
         }
     }
 
