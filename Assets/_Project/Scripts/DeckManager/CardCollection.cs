@@ -7,22 +7,23 @@ public class CardCollection : ScriptableObject
 {
     [field: SerializeField] public List<ScriptableCard> CardsInCollection { get; private set; }
 
-
+    public void AddCardToCollection(ScriptableCard card)
+    {
+        CardsInCollection.Add(card);
+    }
 
     public void RemoveCardFromCollection(ScriptableCard card)
     {
         if (CardsInCollection.Contains(card))
-        {
             CardsInCollection.Remove(card);
-        }
         else
-        {
-            Debug.LogWarning("Card is not available in collection; cannot remove");
-        }
+            Debug.LogWarning($"Card {card.name} is not in collection.");
     }
 
-    public void AddCardToCollection(ScriptableCard card)
+    public List<ScriptableCard> GetSortedByElement()
     {
-        CardsInCollection.Add(card);
+        List<ScriptableCard> sorted = new List<ScriptableCard>(CardsInCollection);
+        sorted.Sort((a, b) => a.Element.CompareTo(b.Element));
+        return sorted;
     }
 }
