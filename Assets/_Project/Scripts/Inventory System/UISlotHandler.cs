@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using TMPro;
 
-public class UISlotHandler : MonoBehaviour, IPointerClickHandler
+/*public class UISlotHandler : MonoBehaviour, IPointerClickHandler
 {
     public Item item;
     public Image slotImg;
@@ -39,4 +39,4 @@ public class UISlotHandler : MonoBehaviour, IPointerClickHandler
 
         MouseManager.instance.UpdateHeldItem(this);
     }
-}
+}*/

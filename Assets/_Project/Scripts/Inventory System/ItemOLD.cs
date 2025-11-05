@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Item", menuName = "ScriptableObjects/Items")]
+/*[CreateAssetMenu(fileName = "Item", menuName = "ScriptableObjects/Items")]
 public class Item : ScriptableObject
 {
     public string itemID;
@@ -27,4 +27,4 @@ public static class ScriptableObjectExtension
         instance.name = scriptableObject.name; // remove (Clone) from name
         return instance;
     }
-}
+}*/

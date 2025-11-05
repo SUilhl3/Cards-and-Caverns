@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MouseManager : MonoBehaviour
+/*public class MouseManager : MonoBehaviour
 {
     public static MouseManager instance;
 
@@ -54,4 +54,4 @@ public class MouseManager : MonoBehaviour
             activeSlot.inventoryManager.ClearItemSlot(activeSlot);
         }
     }
-}
+}*/

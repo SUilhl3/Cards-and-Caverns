@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InventoryManager : MonoBehaviour
+/*public class InventoryManager : MonoBehaviour
 {
     public GameObject inventoryGrid;
     public bool messyInventory;
@@ -67,4 +67,4 @@ public class InventoryManager : MonoBehaviour
             uiSlots[i].SetSiblingIndex(i);
         }
     }
-}
+}*/
