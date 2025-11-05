@@ -6,8 +6,6 @@ public class BattleTestManager : MonoBehaviour
     public Combatant player;
     public EnemyAttack[] enemies;
 
-    // Optional: set this in the Inspector to only hit enemy layers
-    public LayerMask clickableLayer = ~0;
 
     void Update()
     {
@@ -17,7 +15,7 @@ public class BattleTestManager : MonoBehaviour
             StartCoroutine(EnemyTurnSequence());
         }
 
-        // Click-to-attack (left mouse button)
+        // click to attack enemy
         if (Input.GetMouseButtonDown(0))
         {
             TryClickDamage2D(10);
@@ -32,7 +30,7 @@ public class BattleTestManager : MonoBehaviour
         Vector3 worldPoint3 = cam.ScreenToWorldPoint(Input.mousePosition);
         Vector2 worldPoint = new Vector2(worldPoint3.x, worldPoint3.y);
 
-        Collider2D hit = Physics2D.OverlapPoint(worldPoint, clickableLayer);
+        Collider2D hit = Physics2D.OverlapPoint(worldPoint);
         if (hit != null)
         {
             var combatant = hit.GetComponent<Combatant>();
@@ -46,7 +44,7 @@ public class BattleTestManager : MonoBehaviour
 
     private IEnumerator EnemyTurnSequence()
     {
-        Debug.Log("Player turn ended. Enemies taking their turn...");
+        Debug.Log(" --------- Enemy Turn ---------");
 
         foreach (var enemy in enemies)
         {
@@ -57,6 +55,6 @@ public class BattleTestManager : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
         }
 
-        Debug.Log("Enemy turn complete. Player turn resumes.");
+        Debug.Log("--------- Player Turn ---------");
     }
 }
