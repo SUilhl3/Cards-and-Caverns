@@ -12,6 +12,10 @@ public class Deck : MonoBehaviour
     [SerializeField] private CardCollection _playerDeck;
     [SerializeField] private Card _cardPrefab;
     [SerializeField] private Canvas _cardCanvas;
+    [Header("Hand Layout")]
+    [SerializeField] private float handSpacing = 180f; // horizontal spacing between hand cards
+    [SerializeField] private float handAnchoredY = -220f; // anchored Y position for hand row
+    [SerializeField] private float drawStaggerSeconds = 0.12f; // delay between draw animations
     [SerializeField] private bool discardPiledEdited = false;
     [SerializeField] private bool deckPileEdited = false;
 
@@ -21,6 +25,9 @@ public class Deck : MonoBehaviour
     private List<Card> _savedDeckOrder = new();
     private List<Card> _savedDiscardOrder = new();
     public List<Card> HandCards { get; private set; } = new();
+    // The card currently being dragged by the player (if any). Used to skip
+    // repositioning the dragged card during live reflow.
+    public Card CurrentlyDraggingCard { get; set; }
 
 
     private bool isDiscardPileVisible = false;
@@ -83,7 +90,7 @@ public class Deck : MonoBehaviour
 
     }
 
-    public void DrawHand(int amount = 5)
+    public void DrawHand(int n)
     {
 
         Card cardToDraw = null;
@@ -119,6 +126,60 @@ public class Deck : MonoBehaviour
         }
     }
 
+    // Draw a specific ScriptableCard by finding its UI Card instance in deck or discard.
+    // If found, the UI card is removed from its source pile, added to the hand,
+    // activated, laid out and returned. Returns null if no matching UI Card is available.
+    public Card DrawHand(ScriptableCard data)
+    {
+        if (data == null) return null;
+
+        // Prefer exact reference equality first (fast and correct when the same ScriptableCard
+        // instance is used by Deck and by the CombatManager's starting deck).
+        Card found = _deckPile.Find(c => c.CardData == data);
+        if (found == null)
+        {
+            // Fallback: try matching by card name in case the ScriptableCard references are
+            // different instances (same display name) — this happens when cards are loaded
+            // from different assets or duplicated in different collections.
+            found = _deckPile.Find(c => c.CardData != null && c.CardData.CardName == data.CardName);
+            if (found != null)
+                Debug.Log($"DrawHand: matched UI card by name fallback for '{data.CardName}'");
+        }
+
+        if (found != null)
+        {
+            _deckPile.Remove(found);
+            HandCards.Add(found);
+            found.gameObject.SetActive(true);
+            UpdateHandLayout();
+            return found;
+        }
+
+        // If not in deck, check discard pile and move it to hand (same matching strategy)
+        found = _discardPile.Find(c => c.CardData == data);
+        if (found == null)
+        {
+            found = _discardPile.Find(c => c.CardData != null && c.CardData.CardName == data.CardName);
+            if (found != null)
+                Debug.Log($"DrawHand: matched UI card in discard by name fallback for '{data.CardName}'");
+        }
+
+        if (found != null)
+        {
+            _discardPile.Remove(found);
+            HandCards.Add(found);
+            found.gameObject.SetActive(true);
+            UpdateHandLayout();
+            return found;
+        }
+
+        return null;
+    }
+
+    // Backwards-compatible wrapper for code that still calls DrawSpecificCard.
+    [System.Obsolete("Use DrawHand(ScriptableCard) instead")]
+    public Card DrawSpecificCard(ScriptableCard data) => DrawHand(data);
+
     public void DiscardCard(Card card)
     {
         if (HandCards.Contains(card))
@@ -126,6 +187,47 @@ public class Deck : MonoBehaviour
             HandCards.Remove(card);
             _discardPile.Add(card);
             card.gameObject.SetActive(false);
+            // Reflow remaining hand cards into their new positions
+            UpdateHandLayout();
+        }
+    }
+
+    // Recompute target anchored positions for all cards in hand and animate them into place.
+    public void UpdateHandLayout(bool immediate = false)
+    {
+        if (HandCards == null || HandCards.Count == 0) return;
+
+        int total = HandCards.Count;
+        float startX = -((total - 1) / 2f) * handSpacing;
+
+        for (int i = 0; i < total; i++)
+        {
+            var card = HandCards[i];
+            if (card == null) continue;
+            // If this card is currently being dragged, skip positioning it here so
+            // the drag preserves the user's pointer position.
+            if (card == CurrentlyDraggingCard) continue;
+            var rt = card.GetComponent<RectTransform>();
+            var cm = card.GetComponent<CardMovement>();
+            Vector2 target = new Vector2(startX + (i * handSpacing), handAnchoredY);
+
+            if (cm != null)
+            {
+                if (immediate)
+                {
+                    if (rt != null) rt.anchoredPosition = target;
+                }
+                else
+                {
+                    // animate into place; stagger using index so draws look sequential
+                    float delay = i * drawStaggerSeconds;
+                    cm.StartCoroutine(cm.AnimateIntoHand(target, delay));
+                }
+            }
+            else if (rt != null)
+            {
+                rt.anchoredPosition = target;
+            }
         }
     }
 
@@ -186,7 +288,7 @@ public class Deck : MonoBehaviour
             card.gameObject.SetActive(false);
         }
     }
-     
+
     public void DisplayDeckPile()
     {
         if(discardPiledEdited && _savedDiscardOrder.Count == _deckPile.Count)
@@ -213,8 +315,8 @@ public class Deck : MonoBehaviour
 
     public void toggleDiscardPile()
     {
-        if (isDiscardPileVisible) 
-        { 
+        if (isDiscardPileVisible)
+        {
             HideDiscardPile();
             saveDiscardOrder.SetActive(false);
         }
@@ -230,8 +332,8 @@ public class Deck : MonoBehaviour
     {
         Debug.Log($"_deckPile count before display: {_deckPile.Count}");
         Debug.Log($"_discardPile count before display: {_discardPile.Count}");
-        if (isDeckVisible) 
-        { 
+        if (isDeckVisible)
+        {
             HideDeckPile();
             saveDeckOrder.SetActive(false);
         }
@@ -268,7 +370,7 @@ public class Deck : MonoBehaviour
 
     public void DisplayDeckButton()
     {
-        ToggleDeckPile(); 
+        ToggleDeckPile();
     }
 
     #endregion

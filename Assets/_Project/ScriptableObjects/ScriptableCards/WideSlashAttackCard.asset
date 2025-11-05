@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <CardName>k__BackingField: Wide Slash
   <CardDescription>k__BackingField: Basic Area of Effect Strike (Several Enemies).
-  <Image>k__BackingField: {fileID: 0}
+  <Image>k__BackingField: {fileID: 5363091276400413055, guid: c8eaaa85baac09e49abf24fa69ce5ebc, type: 3}
   <Element>k__BackingField: 0
   <EffectType>k__BackingField: 0
   <Rarity>k__BackingField: 0

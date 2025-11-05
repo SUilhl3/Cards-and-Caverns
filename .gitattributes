@@ -1,0 +1,17 @@
+# Unity YAML and binary handling
+*.unity binary
+*.prefab binary
+*.asset binary
+*.fbx binary
+*.mat binary
+*.controller binary
+*.anim binary
+
+# Treat text files with consistent line endings
+*.cs text eol=crlf
+*.shader text eol=crlf
+*.txt text eol=crlf
+*.md text eol=crlf
+
+# Meta files are text
+*.meta text eol=crlf

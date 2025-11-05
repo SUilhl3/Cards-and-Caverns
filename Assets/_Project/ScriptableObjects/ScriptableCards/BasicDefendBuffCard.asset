@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <CardName>k__BackingField: Defend
   <CardDescription>k__BackingField: Defend yourself from 10 damage
-  <Image>k__BackingField: {fileID: 0}
+  <Image>k__BackingField: {fileID: 7692988691765373475, guid: c8eaaa85baac09e49abf24fa69ce5ebc, type: 3}
   <Element>k__BackingField: 0
   <EffectType>k__BackingField: 0
   <Rarity>k__BackingField: 0
