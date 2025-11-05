@@ -29,6 +29,8 @@ public class Combatant : MonoBehaviour
     public void TakeDamage(int amount)
     {
         int dmg = Mathf.Max(0, amount);
+        if (dmg == 0) return;
+        _animController?.PlayHit();
         int fromBlock = Mathf.Min(block, dmg);
         block -= fromBlock;
         int hpLoss = dmg - fromBlock;
@@ -37,7 +39,6 @@ public class Combatant : MonoBehaviour
         if (currentHealth <= 0) Die();
     }
 
-    // Add target parameter to know who is being attacked
     public void Attack(Combatant target)
     {
         Debug.Log($"{combatantName} attacks {target.combatantName}!");

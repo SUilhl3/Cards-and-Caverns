@@ -97,7 +97,7 @@ public class CombatManager : MonoBehaviour
         {
             if (e == null || !e.gameObject.activeSelf) continue;
             var atk = e.GetComponent<EnemyAttack>();
-            if (atk != null) atk.PerformAttack();
+            if (atk != null) atk.TakeTurn();
         }
         foreach (var e in enemyManager.Enemies) if (e != null) e.ResetBlock();
         if (player.currentHealth <= 0) { _state = TurnState.Defeat; Debug.Log("Defeat"); return; }

@@ -149,8 +149,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   combatantName: Player
-  maxHealth: 30
+  maxHealth: 70
   currentHealth: 0
+  block: 0
   healthText: {fileID: 1297376037}
 --- !u!4 &25578791
 Transform:
@@ -201,6 +202,34 @@ PrefabInstance:
     - target: {fileID: 5932264565069655738, guid: b58af178e18482346941304fd0f28919, type: 3}
       propertyPath: attackDamage
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5932264565069655738, guid: b58af178e18482346941304fd0f28919, type: 3}
+      propertyPath: actionCycle.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5932264565069655738, guid: b58af178e18482346941304fd0f28919, type: 3}
+      propertyPath: 'actionCycle.Array.data[0]'
+      value: Poison
+      objectReference: {fileID: 0}
+    - target: {fileID: 5932264565069655738, guid: b58af178e18482346941304fd0f28919, type: 3}
+      propertyPath: 'actionCycle.Array.data[1]'
+      value: Attack
+      objectReference: {fileID: 0}
+    - target: {fileID: 5932264565069655738, guid: b58af178e18482346941304fd0f28919, type: 3}
+      propertyPath: 'actionCycle.Array.data[2]'
+      value: Charge
+      objectReference: {fileID: 0}
+    - target: {fileID: 5932264565069655738, guid: b58af178e18482346941304fd0f28919, type: 3}
+      propertyPath: 'actionCycle.Array.data[3]'
+      value: Attack
+      objectReference: {fileID: 0}
+    - target: {fileID: 5932264565069655738, guid: b58af178e18482346941304fd0f28919, type: 3}
+      propertyPath: 'actionCycle.Array.data[4]'
+      value: Charge
+      objectReference: {fileID: 0}
+    - target: {fileID: 5932264565069655738, guid: b58af178e18482346941304fd0f28919, type: 3}
+      propertyPath: 'actionCycle.Array.data[5]'
+      value: Attack
       objectReference: {fileID: 0}
     - target: {fileID: 8188444263009369257, guid: b58af178e18482346941304fd0f28919, type: 3}
       propertyPath: m_LocalPosition.x
@@ -311,6 +340,30 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 25578790}
+    - target: {fileID: 4331631762501654445, guid: c806616521dbca54bb40b5eb761001f8, type: 3}
+      propertyPath: actionCycle.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4331631762501654445, guid: c806616521dbca54bb40b5eb761001f8, type: 3}
+      propertyPath: 'actionCycle.Array.data[0]'
+      value: Defend
+      objectReference: {fileID: 0}
+    - target: {fileID: 4331631762501654445, guid: c806616521dbca54bb40b5eb761001f8, type: 3}
+      propertyPath: 'actionCycle.Array.data[1]'
+      value: Attack
+      objectReference: {fileID: 0}
+    - target: {fileID: 4331631762501654445, guid: c806616521dbca54bb40b5eb761001f8, type: 3}
+      propertyPath: 'actionCycle.Array.data[2]'
+      value: Attack
+      objectReference: {fileID: 0}
+    - target: {fileID: 4331631762501654445, guid: c806616521dbca54bb40b5eb761001f8, type: 3}
+      propertyPath: 'actionCycle.Array.data[3]'
+      value: Charge
+      objectReference: {fileID: 0}
+    - target: {fileID: 4331631762501654445, guid: c806616521dbca54bb40b5eb761001f8, type: 3}
+      propertyPath: 'actionCycle.Array.data[4]'
+      value: Attack
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -736,6 +789,9 @@ MonoBehaviour:
   enemies:
   - {fileID: 351398792}
   - {fileID: 700752479}
+  clickableLayer:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!4 &1611828365
 Transform:
   m_ObjectHideFlags: 0
@@ -887,8 +943,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1 and 2 activate the attacks of enemy 1 and 2, and H will hit both enemies
-    and hurt them. P just hits the bat
+  m_text: 'Click enemy to attack, press space to end turn '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -972,8 +1027,8 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1175714358}
-  - {fileID: 431946934}
   - {fileID: 586346034}
+  - {fileID: 431946934}
   - {fileID: 25578791}
   - {fileID: 1214834783}
   - {fileID: 1714715250}

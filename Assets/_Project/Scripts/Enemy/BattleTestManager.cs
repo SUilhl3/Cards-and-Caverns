@@ -1,32 +1,62 @@
 using UnityEngine;
+using System.Collections;
 
 public class BattleTestManager : MonoBehaviour
 {
     public Combatant player;
     public EnemyAttack[] enemies;
 
+    // Optional: set this in the Inspector to only hit enemy layers
+    public LayerMask clickableLayer = ~0;
+
     void Update()
     {
-        // Enemy 0 attacks player
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-            enemies[0].PerformAttack();
-
-        // Enemy 1 attacks player
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-            enemies[1].PerformAttack();
-
-        // Player attacks enemy 0
-        if (Input.GetKeyDown(KeyCode.P))
+        // Currently ends turn manually for testing
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            Debug.Log($"{player.combatantName} attacks {enemies[0].GetComponent<Combatant>().combatantName}!");
-            enemies[0].GetComponent<Combatant>().TakeDamage(10);
+            StartCoroutine(EnemyTurnSequence());
         }
 
-        // Test enemy hit manually
-        if (Input.GetKeyDown(KeyCode.H))
+        // Click-to-attack (left mouse button)
+        if (Input.GetMouseButtonDown(0))
         {
-            enemies[0].GetComponent<Combatant>().TakeDamage(5);
-            enemies[1].GetComponent<Combatant>().TakeDamage(5);
+            TryClickDamage2D(10);
         }
+    }
+
+    private void TryClickDamage2D(int damage)
+    {
+        var cam = Camera.main;
+        if (cam == null) return;
+
+        Vector3 worldPoint3 = cam.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 worldPoint = new Vector2(worldPoint3.x, worldPoint3.y);
+
+        Collider2D hit = Physics2D.OverlapPoint(worldPoint, clickableLayer);
+        if (hit != null)
+        {
+            var combatant = hit.GetComponent<Combatant>();
+            if (combatant != null)
+            {
+                Debug.Log($"{player.combatantName} attacks {combatant.combatantName}!");
+                combatant.TakeDamage(damage);
+            }
+        }
+    }
+
+    private IEnumerator EnemyTurnSequence()
+    {
+        Debug.Log("Player turn ended. Enemies taking their turn...");
+
+        foreach (var enemy in enemies)
+        {
+            if (enemy == null || enemy.GetComponent<Combatant>().currentHealth <= 0)
+                continue;
+
+            yield return enemy.TakeTurn();
+            yield return new WaitForSeconds(0.5f);
+        }
+
+        Debug.Log("Enemy turn complete. Player turn resumes.");
     }
 }
