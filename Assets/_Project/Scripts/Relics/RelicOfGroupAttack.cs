@@ -5,8 +5,11 @@ public class RelicOfGroupAttack : RelicTemplate
 {
     public int attackAmount = 3;
 
-    public override void OnBattleStart(GameObject player)
+    public override void OnBattleStart(PlayerCombatant player, CombatManager combatManager, EnemyManager enemyManager)
     {
-        Debug.Log("Attacking all enemies");
+        foreach (Combatant enemy in enemyManager.Enemies)
+        {
+            enemy.TakeDamage(attackAmount);
+        }
     }
 }

@@ -1695,6 +1695,7 @@ GameObject:
   - component: {fileID: 2074637762}
   - component: {fileID: 2074637764}
   - component: {fileID: 2074637763}
+  - component: {fileID: 2074637765}
   m_Layer: 0
   m_Name: GameSystems
   m_TagString: Untagged
@@ -1744,6 +1745,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 2104645937}
   enemyManager: {fileID: 2074637763}
+  relicManager: {fileID: 2074637765}
   deck: {fileID: 254885301}
   startingDeck: {fileID: 11400000, guid: e9287aa3a70151241a6d021e402dc61f, type: 2}
   startingDeckCollection: {fileID: 0}
@@ -1752,6 +1754,26 @@ MonoBehaviour:
   OnCardPlayed:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2074637765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2074637759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1de6ec4f13b5a3a4cab8a0d1055b2870, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allAvailableRelics:
+  - {fileID: 11400000, guid: 520072837b48b794982dc2d0bb64b031, type: 2}
+  relicList:
+  - {fileID: 11400000, guid: 520072837b48b794982dc2d0bb64b031, type: 2}
+  player: {fileID: 2104645937}
+  combatManager: {fileID: 0}
+  enemyManager: {fileID: 0}
+  coinCount: {fileID: 1824813466}
 --- !u!1 &2104645934
 GameObject:
   m_ObjectHideFlags: 0
@@ -1859,7 +1881,7 @@ MonoBehaviour:
   healthText: {fileID: 1900307854}
   baseEnergyPerTurn: 10
   energy: 0
-  drawPerTurn: 10
+  drawPerTurn: 5
 --- !u!114 &2116874387 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8812593663012042776, guid: 653162396ef041c49813b34f329f8f17, type: 3}

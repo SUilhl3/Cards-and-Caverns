@@ -5,9 +5,9 @@ public class RelicOfQuickDraw : RelicTemplate
 {
     public int numExtraCards = 1;
 
-    public override void OnBattleStart(GameObject player)
+    public override void OnBattleStart(PlayerCombatant player, CombatManager combatManager, EnemyManager enemyManager)
     {
-        //draw an extra card 
-        Debug.Log("Drawing extra card");
+        player.drawPerTurn += numExtraCards;
+
     }
 }

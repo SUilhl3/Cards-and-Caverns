@@ -6,7 +6,16 @@ public class RelicManager : MonoBehaviour
 {
     public List<RelicTemplate> allAvailableRelics = new List<RelicTemplate>(); //list of all available relics
     public List<RelicTemplate> relicList = new List<RelicTemplate>(); // list of relics player acquired
-    public GameObject player;
+    public PlayerCombatant player;
+    [SerializeField] CombatManager combatManager;
+    [SerializeField] EnemyManager enemyManager;
+    [SerializeField] CoinCount coinCount;
+
+    private void Awake()
+    {
+        combatManager = GetComponent<CombatManager>();
+        enemyManager = GetComponent<EnemyManager>();
+    }
 
     //just for testing for now
     private void Update()
@@ -47,7 +56,7 @@ public class RelicManager : MonoBehaviour
     public void AddRelic(RelicTemplate relic)
     {
         relicList.Add(relic);
-        relic.onAcquire(player);
+        relic.onAcquire(player, coinCount);
     }
 
     //call all the onBattleStart methods for each relic 
@@ -55,7 +64,7 @@ public class RelicManager : MonoBehaviour
     {
         foreach (var relic in relicList)
         {
-            relic.OnBattleStart(player);
+            relic.OnBattleStart(player, combatManager, enemyManager);
         }
     }
 
@@ -64,7 +73,7 @@ public class RelicManager : MonoBehaviour
     {
         foreach(var relic in relicList)
         {
-            relic.OnBattleFinish(player);
+            relic.OnBattleFinish(player, coinCount);
         }
     }
 

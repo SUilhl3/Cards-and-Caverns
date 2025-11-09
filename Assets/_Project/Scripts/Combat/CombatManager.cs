@@ -10,6 +10,7 @@ public class CombatManager : MonoBehaviour
 {
 	[Header("Links")] public PlayerCombatant player;
 	public EnemyManager enemyManager;
+    public RelicManager relicManager;
 	// Optional reference to the Deck UI component. If left null, Deck.Instance will be used.
 	public Deck deck;
 
@@ -45,7 +46,8 @@ public class CombatManager : MonoBehaviour
 		if (player == null || enemyManager == null) { Debug.LogError("CombatManager missing refs"); enabled = false; return; }
 		BuildStartingDeck();
 		Shuffle(_draw);
-		BeginBattle();
+        relicManager.OnBattleStartCalls();
+        BeginBattle();
 	}
 
 
@@ -92,7 +94,7 @@ public class CombatManager : MonoBehaviour
 		_discard.Add(_selected);
 		_selected = null;
 		CleanupDeaths();
-		if (enemyManager.AllDefeated) { _state = TurnState.Victory; Debug.Log("Victory"); }
+		if (enemyManager.AllDefeated) { _state = TurnState.Victory; Debug.Log("Victory"); relicManager.OnBattleFinishCalls(); }
 
 		return true;
 	}
@@ -161,6 +163,7 @@ public class CombatManager : MonoBehaviour
 		_state = TurnState.PlayerStart; StartPlayerTurn();
         print("Ending Enemies' Turn");
 	}
+
 	private void Draw(int n)
 	{
 		for (int i = 0; i < n; i++)

@@ -5,8 +5,9 @@ public class RelicOfImmenseHealth : RelicTemplate
 {
     public int healthIncrease = 20;
 
-    public override void onAcquire(GameObject player)
+    public override void onAcquire(PlayerCombatant player, CoinCount coinCount)
     {
-        Debug.Log("increasing health");
+        player.maxHealth += healthIncrease;
+        player.currentHealth += healthIncrease;
     }
 }

@@ -5,10 +5,8 @@ public class RelicOfLittleWealth : RelicTemplate
 {
     public int coins = 200;
 
-    public override void onAcquire(GameObject player)
+    public override void onAcquire(PlayerCombatant player, CoinCount coinCount)
     {
-        CoinCount coinCount = FindAnyObjectByType<CoinCount>();
         coinCount.count += coins;
-        Debug.Log("added 200 coins");
     }
 }

@@ -6,10 +6,9 @@ public class RelicOfGreatWealth : RelicTemplate
 {
     public int coins = 400;
 
-    public override void onAcquire(GameObject player)
+    public override void onAcquire(PlayerCombatant player, CoinCount coinCount)
     {
-        CoinCount coinCount = FindAnyObjectByType<CoinCount>();
         coinCount.count += coins;
-        Debug.Log("Adding 400 coins");
+        
     }
 }

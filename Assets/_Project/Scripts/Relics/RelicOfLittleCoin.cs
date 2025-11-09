@@ -5,7 +5,7 @@ public class RelicOfLittleCoin : RelicTemplate
 {
     public float coinMultiplier = 1.25f;
 
-    public override void OnBattleFinish(GameObject player)
+    public override void OnBattleFinish(PlayerCombatant player, CoinCount coinCount)
     {
         //apply multiplier to coins to be won after battle 
         Debug.Log("applied multiplier");

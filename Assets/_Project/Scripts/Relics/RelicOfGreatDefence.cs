@@ -6,8 +6,8 @@ public class RelicOfGreatDefence : RelicTemplate
 {
     public int defenceBuff = 15;
 
-    public override void OnBattleStart(GameObject player)
+    public override void OnBattleStart(PlayerCombatant player, CombatManager combatManager, EnemyManager enemyManager)
     {
-        Debug.Log("Increasing defence");
+        player.GainBlock(defenceBuff);
     }
 }
