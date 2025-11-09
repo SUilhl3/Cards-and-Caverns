@@ -1767,9 +1767,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allAvailableRelics:
+  - {fileID: 11400000, guid: 9bc394db034425242bc64566a54b33e3, type: 2}
+  - {fileID: 11400000, guid: 8d262d6cb67f1a14fbc433b412640d6a, type: 2}
+  - {fileID: 11400000, guid: a7f0556204ec23b4188f49ddd674e5cc, type: 2}
+  - {fileID: 11400000, guid: 2ff450612a55fd740a001ede144ab4b5, type: 2}
+  - {fileID: 11400000, guid: 3759ab120ebf87745b31f0bad1d8ae3c, type: 2}
   - {fileID: 11400000, guid: 520072837b48b794982dc2d0bb64b031, type: 2}
-  relicList:
-  - {fileID: 11400000, guid: 520072837b48b794982dc2d0bb64b031, type: 2}
+  - {fileID: 11400000, guid: 10d58e88629336040808044338fcb2bd, type: 2}
+  - {fileID: 11400000, guid: 35b0770dde115ce449fc81d632305ed5, type: 2}
+  - {fileID: 11400000, guid: 3e65f29b93c814141aa89a211eeea6f4, type: 2}
+  - {fileID: 11400000, guid: 199d4d0460253f3449ffb619ea32b5be, type: 2}
+  - {fileID: 11400000, guid: 75805e0f659c1a94b945c32266f732f8, type: 2}
+  - {fileID: 11400000, guid: 07a25acb30e548a4fa193da6a2657c77, type: 2}
+  relicList: []
   player: {fileID: 2104645937}
   combatManager: {fileID: 0}
   enemyManager: {fileID: 0}
