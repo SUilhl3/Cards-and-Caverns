@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 958b8c52e9343344e981ff5417ada6ff, type: 3}
+  m_Name: Sounds SO
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: DRAWCARD
+    category: 0
+    volume: 1
+    mixer: {fileID: 0}
+    sounds: []
+  - name: ATTACKCARD
+    category: 0
+    volume: 1
+    mixer: {fileID: 0}
+    sounds: []
+  - name: DEFENDCARD
+    category: 0
+    volume: 1
+    mixer: {fileID: 0}
+    sounds: []
+  - name: HEAL
+    category: 0
+    volume: 1
+    mixer: {fileID: 0}
+    sounds: []
+  - name: USERELIC
+    category: 0
+    volume: 1
+    mixer: {fileID: 0}
+    sounds: []
+  - name: PLAYERTAKEDAMAGE
+    category: 0
+    volume: 1
+    mixer: {fileID: 0}
+    sounds: []
+  - name: ENEMYTAKEDAMAGE
+    category: 0
+    volume: 1
+    mixer: {fileID: 0}
+    sounds: []
+  - name: MAINMENUMUSIC
+    category: 1
+    volume: 1
+    mixer: {fileID: 0}
+    sounds: []
+  - name: BATTLEMUSIC
+    category: 1
+    volume: 1
+    mixer: {fileID: 0}
+    sounds: []
+  - name: VICTORYMUSIC
+    category: 1
+    volume: 1
+    mixer: {fileID: 0}
+    sounds: []
+  - name: DEFEATMUSIC
+    category: 1
+    volume: 0
+    mixer: {fileID: 0}
+    sounds: []
