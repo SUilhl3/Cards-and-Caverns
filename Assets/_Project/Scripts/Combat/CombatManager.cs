@@ -113,6 +113,7 @@ public class CombatManager : MonoBehaviour
 		{
 			// Fire the event so listeners (UI, SFX) can react to a successful play
 			OnCardPlayed?.Invoke(uiCard, target);
+            player.UpdateEnergyUI();
 			return true;
 		}
 
@@ -122,13 +123,14 @@ public class CombatManager : MonoBehaviour
 	}
 
 
-	private void BeginBattle() { _state = TurnState.PlayerStart; StartPlayerTurn(); }
+	private void BeginBattle() { _state = TurnState.PlayerStart; StartPlayerTurn();}
 
 
 	private void StartPlayerTurn()
     {
         print("Starting Player Turn");
 		player.energy = player.baseEnergyPerTurn;
+        player.UpdateEnergyUI();
 		player.block = 0;
         // Draw opening hand of `player.drawPerTurn` on the very first player turn,
         // otherwise draw 1 card per turn.
@@ -143,6 +145,7 @@ public class CombatManager : MonoBehaviour
         DiscardHand();
 		//player.block = 0;
         print("Ending Player Turn");
+        print("Energy at the End of the Player's Turn: " + player.energy);
 		_state = TurnState.EnemiesStart;
         EnemiesTurn();
 	}
