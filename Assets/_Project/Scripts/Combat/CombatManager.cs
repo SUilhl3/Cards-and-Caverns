@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 
 public enum TurnState { PlayerStart, PlayerAct, PlayerEnd, EnemiesStart, EnemiesAct, EnemiesEnd, Victory, Defeat }
@@ -11,6 +12,8 @@ public class CombatManager : MonoBehaviour
 	[Header("Links")] public PlayerCombatant player;
 	public EnemyManager enemyManager;
     public RelicManager relicManager;
+    public StatsManager statsManager;
+    //public StatsManager statsManager;
 	// Optional reference to the Deck UI component. If left null, Deck.Instance will be used.
 	public Deck deck;
 
@@ -41,12 +44,20 @@ public class CombatManager : MonoBehaviour
 	// Fires when a card is successfully played (uiCard, target)
 	public CardCombatantEvent OnCardPlayed = new CardCombatantEvent();
 
-	void Start()
+    private void Awake()
+    {
+
+        relicManager = FindAnyObjectByType<RelicManager>();
+        statsManager = FindAnyObjectByType<StatsManager>();
+    }
+
+    void Start()
 	{
 		if (player == null || enemyManager == null) { Debug.LogError("CombatManager missing refs"); enabled = false; return; }
 		BuildStartingDeck();
 		Shuffle(_draw);
-        relicManager.OnBattleStartCalls();
+        if (relicManager != null) { relicManager.OnBattleStartCalls(); }
+        if (statsManager != null) { statsManager.UpdateStats(); };
         BeginBattle();
 	}
 
@@ -57,7 +68,10 @@ public class CombatManager : MonoBehaviour
 		{
 			if (Input.GetKeyDown(KeyCode.Return)) EndPlayerTurn();
 		}
-	}
+
+        //was not always responsive during the Enemies turn so also added to the update function
+        if (player.currentHealth <= 0) { _state = TurnState.Defeat; Debug.Log("Defeat"); SceneManager.LoadScene(8); }
+    }
 
 
 	public void OnCardClicked(Card card) // hook this from your Card UI click
@@ -94,7 +108,37 @@ public class CombatManager : MonoBehaviour
 		_discard.Add(_selected);
 		_selected = null;
 		CleanupDeaths();
-		if (enemyManager.AllDefeated) { _state = TurnState.Victory; Debug.Log("Victory"); relicManager.OnBattleFinishCalls(); }
+		if (enemyManager.AllDefeated)
+        {
+            _state = TurnState.Victory;
+            Debug.Log("Victory");
+            if (relicManager != null)
+            {
+                relicManager.OnBattleFinishCalls();
+                relicManager.SelectRandomRelic();
+            }
+            if (statsManager != null)
+            {
+                statsManager.SaveStats();
+            }
+
+            //if first battle scene go to second
+            if (SceneManager.GetActiveScene().buildIndex == 1)
+            {
+                SceneManager.LoadScene(5);
+            }
+            //if second battle scene go to rest scene
+            if (SceneManager.GetActiveScene().buildIndex == 5)
+            {
+                SceneManager.LoadScene(6);
+            }
+
+            //if done the game go to end game (transition to 7/boss done in rest scene)
+            if (SceneManager.GetActiveScene().buildIndex == 7)
+            {
+                SceneManager.LoadScene(9);
+            }
+        }
 
 		return true;
 	}
@@ -139,8 +183,9 @@ public class CombatManager : MonoBehaviour
 		_firstPlayerTurn = false;
         _state = TurnState.PlayerAct;
 	}
-	private void EndPlayerTurn()
+	public void EndPlayerTurn()
 	{
+        if (player.currentHealth <= 0) { SceneManager.LoadScene(8); }
 		_state = TurnState.PlayerEnd;
         DiscardHand();
 		//player.block = 0;
@@ -162,7 +207,7 @@ public class CombatManager : MonoBehaviour
 			if (atk != null) StartCoroutine(atk.TakeTurn());
 		}
 		foreach (var e in enemyManager.Enemies) if (e != null) e.ResetBlock();
-		if (player.currentHealth <= 0) { _state = TurnState.Defeat; Debug.Log("Defeat"); return; }
+		if (player.currentHealth <= 0) { _state = TurnState.Defeat; Debug.Log("Defeat"); SceneManager.LoadScene(6); }
 		_state = TurnState.PlayerStart; StartPlayerTurn();
         print("Ending Enemies' Turn");
 	}

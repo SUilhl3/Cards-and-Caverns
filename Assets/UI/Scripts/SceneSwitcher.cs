@@ -9,6 +9,12 @@ public class SceneSwitcher : MonoBehaviour
     private const string PauseMenuOpenKey = "PauseMenuOpen";
     private const string ConfirmationOpenKey = "ConfirmationOpen";
 
+    public StatsManager StatsManager;
+
+    private void Awake()
+    {
+        StatsManager = FindAnyObjectByType<StatsManager>();
+    }
     void Start()
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
@@ -58,7 +64,23 @@ public class SceneSwitcher : MonoBehaviour
     public void LoadMenu()
     {
         ClearPauseState();
+        ClearManagers();
         SceneManager.LoadScene(0);
+    }
+
+    //deletes the managers on a new playthrough as they are currently not being destroyed on load
+    public void ClearManagers()
+    {
+        GameObject managers = GameObject.Find("Managers");
+        if (managers != null)
+        {
+            Destroy(managers);
+        }
+        GameObject currencyManager = GameObject.Find("CurrencyManager");
+        if (currencyManager != null)
+        {
+            Destroy(currencyManager);
+        }
     }
 
     public void LoadLastScene()
@@ -80,5 +102,10 @@ public class SceneSwitcher : MonoBehaviour
         PlayerPrefs.SetInt(PauseMenuOpenKey, 0);
         PlayerPrefs.SetInt(ConfirmationOpenKey, 0);
         PlayerPrefs.Save();
+    }
+
+    public void LoadBoss()
+    {
+        StatsManager.Rest();
     }
 }

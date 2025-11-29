@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RelicManager : MonoBehaviour
 {
@@ -13,8 +14,16 @@ public class RelicManager : MonoBehaviour
 
     private void Awake()
     {
-        combatManager = GetComponent<CombatManager>();
-        enemyManager = GetComponent<EnemyManager>();
+        DontDestroyOnLoad(gameObject);
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        combatManager = FindAnyObjectByType<CombatManager>(); ;
+        enemyManager = FindAnyObjectByType<EnemyManager>();
+        player = FindAnyObjectByType<PlayerCombatant>();
+        coinCount = FindAnyObjectByType<CoinCount>();
     }
 
     //just for testing for now

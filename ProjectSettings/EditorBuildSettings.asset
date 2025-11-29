@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/_Project/Scenes/MainMenu.unity
     guid: bb4019c766da7ce4f90f3ecc96a39e13
   - enabled: 1
+    path: Assets/_Project/Scenes/BattleScene.unity
+    guid: fafc970833c976d4eb30c0e8ea59596c
+  - enabled: 1
     path: Assets/_Project/Scenes/levelSelect.unity
     guid: ead7ff40605b9aa43b2ee6a9035798ee
   - enabled: 1
@@ -18,8 +21,20 @@ EditorBuildSettings:
     path: Assets/_Project/Scenes/OptionsMenu.unity
     guid: 7ba9f3f892b8cb34299ca39f0fdffbd8
   - enabled: 1
-    path: Assets/_Project/Scenes/BattleScene.unity
-    guid: fafc970833c976d4eb30c0e8ea59596c
+    path: Assets/_Project/Scenes/BattleScene2.unity
+    guid: 8f18560b121657948be12ae764afb35e
+  - enabled: 1
+    path: Assets/_Project/Scenes/RestScene.unity
+    guid: 86729785022d0ed4f82a5d1e31a965db
+  - enabled: 1
+    path: Assets/_Project/Scenes/BossScene.unity
+    guid: bf1712466f19b7c41a7db3835039d91b
+  - enabled: 1
+    path: Assets/_Project/Scenes/EndGame.unity
+    guid: 69b7d32f68df32e41a7c25aec1c1c023
+  - enabled: 1
+    path: Assets/_Project/Scenes/EndGameWin.unity
+    guid: c772c22d891cb7c4e83ce9522edfc6b1
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

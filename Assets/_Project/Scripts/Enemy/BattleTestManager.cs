@@ -6,7 +6,6 @@ public class BattleTestManager : MonoBehaviour
     public Combatant player;
     public EnemyAttack[] enemies;
 
-
     void Update()
     {
         // Currently ends turn manually for testing

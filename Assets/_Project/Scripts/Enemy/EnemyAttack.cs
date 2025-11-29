@@ -21,6 +21,7 @@ public class EnemyAttack : MonoBehaviour
     {
         self = GetComponent<Combatant>();
         animController = GetComponent<EnemyAnimationController>();
+        target = FindAnyObjectByType<PlayerCombatant>();
     }
 
     public IEnumerator TakeTurn()

@@ -4,8 +4,12 @@ using TMPro;
 public class CoinCount : MonoBehaviour
 {
     public int count;
-    public TMP_Text CoinCounter; 
+    public TMP_Text CoinCounter;
 
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
     void Start()
     {
         count = PlayerPrefs.GetInt("amount", 0); 

@@ -50,7 +50,7 @@ public class Combatant : MonoBehaviour
         target.TakeDamage(5); // placeholder
     }
 
-    void UpdateHealthText()
+    public void UpdateHealthText()
     {
         if (healthText != null)
             healthText.text = $"{currentHealth}/{maxHealth}";

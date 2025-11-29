@@ -7,8 +7,7 @@ public class PlayerCombatant : Combatant
 	[Header("Draw")] public int drawPerTurn = 5;
     [Header("UI Elements")] public TMPro.TMP_Text energyUI;
 
-
-	public StatusController Statuses { get; private set; }
+    public StatusController Statuses { get; private set; }
 
     public void UpdateEnergyUI()
     {
@@ -17,7 +16,6 @@ public class PlayerCombatant : Combatant
             energyUI.text = $"{energy}";
         }
     }
-
 
 	void Start() { Statuses = new StatusController(this); }
 }
