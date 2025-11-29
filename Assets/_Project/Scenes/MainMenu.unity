@@ -1094,6 +1094,14 @@ PrefabInstance:
       value: GameManger
       objectReference: {fileID: 0}
     - target: {fileID: 3419887262904833673, guid: 9fa012507d2ab7b41865752e188e9c21, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: 6fc0d1125a15c9840823d9333d45f620, type: 3}
+    - target: {fileID: 3419887262904833673, guid: 9fa012507d2ab7b41865752e188e9c21, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 6fc0d1125a15c9840823d9333d45f620, type: 3}
+    - target: {fileID: 3419887262904833673, guid: 9fa012507d2ab7b41865752e188e9c21, type: 3}
       propertyPath: OutputAudioMixerGroup
       value: 
       objectReference: {fileID: 24300002, guid: f96ffbfc68e01db4b86116ba179ceff3, type: 2}
@@ -1898,6 +1906,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b156d24cd9c500048a06c978842a4352, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  StatsManager: {fileID: 0}
 --- !u!1 &1922210974
 GameObject:
   m_ObjectHideFlags: 0

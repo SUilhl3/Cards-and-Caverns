@@ -51,8 +51,9 @@ MonoBehaviour:
   - name: MAINMENUMUSIC
     category: 1
     volume: 1
-    mixer: {fileID: 0}
-    sounds: []
+    mixer: {fileID: 24300002, guid: f96ffbfc68e01db4b86116ba179ceff3, type: 2}
+    sounds:
+    - {fileID: 8300000, guid: 6fc0d1125a15c9840823d9333d45f620, type: 3}
   - name: BATTLEMUSIC
     category: 1
     volume: 1
@@ -65,6 +66,6 @@ MonoBehaviour:
     sounds: []
   - name: DEFEATMUSIC
     category: 1
-    volume: 0
+    volume: 1
     mixer: {fileID: 0}
     sounds: []

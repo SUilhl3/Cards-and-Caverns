@@ -613,6 +613,14 @@ PrefabInstance:
       value: GameManger
       objectReference: {fileID: 0}
     - target: {fileID: 3419887262904833673, guid: 9fa012507d2ab7b41865752e188e9c21, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: 27ce6815d1fafca4591d6cef5d8a1327, type: 3}
+    - target: {fileID: 3419887262904833673, guid: 9fa012507d2ab7b41865752e188e9c21, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 27ce6815d1fafca4591d6cef5d8a1327, type: 3}
+    - target: {fileID: 3419887262904833673, guid: 9fa012507d2ab7b41865752e188e9c21, type: 3}
       propertyPath: OutputAudioMixerGroup
       value: 
       objectReference: {fileID: 24300002, guid: f96ffbfc68e01db4b86116ba179ceff3, type: 2}
