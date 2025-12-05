@@ -52,13 +52,13 @@ public class SceneSwitcher : MonoBehaviour
     public void LoadTutorial()
     {
         ClearPauseState();
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(3);
     }
 
     public void LoadMap()
     {
         ClearPauseState();
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
 
     public void LoadMenu()
