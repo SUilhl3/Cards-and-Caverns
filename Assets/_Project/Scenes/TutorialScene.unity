@@ -644,9 +644,52 @@ MonoBehaviour:
     screenPosition: {x: -150, y: 150}
     panelSize: {x: -550, y: -400}
   - title: Discard
-    message: This button that says discard is the discard pile. Click it to discard
-      a card in your hand.
+    message: This button that says discard (it's a little hidden behind the cards)
+      is the discard pile. Click it to discard a card in your hand.
+    screenPosition: {x: 125, y: -150}
+    panelSize: {x: -550, y: -400}
+  - title: Energy
+    message: 'This is your energy. The number on it displays how much energy you
+      have. If you are out of energy, you will see an E. '
+    screenPosition: {x: -10, y: -150}
+    panelSize: {x: -550, y: -400}
+  - title: End Turn
+    message: Energy is used to play certain cards during your turn. You can click
+      your energy at any time to end your turn.
+    screenPosition: {x: -10, y: -150}
+    panelSize: {x: -550, y: -400}
+  - title: Cards
+    message: These are your cards. To play once, click and drag it onto the enemy.
+    screenPosition: {x: 3.5, y: 0}
+    panelSize: {x: -550, y: -400}
+  - title: Draw Card
+    message: Below the cards is the draw card button, use this when you need to draw
+      more cards.
+    screenPosition: {x: 3.5, y: 0}
+    panelSize: {x: -550, y: -400}
+  - title: Player
+    message: This is you! Remeber to keep track of your health at the top of the
+      screen.
     screenPosition: {x: -150, y: 150}
+    panelSize: {x: -550, y: -400}
+  - title: Enemy
+    message: This is your enemy. It's health is displayed above it's head.
+    screenPosition: {x: 150, y: 150}
+    panelSize: {x: -550, y: -400}
+  - title: 'Rest '
+    message: Throughout your adventure, you can come across rest points. Use rest
+      points to heal or upgrade your deck.
+    screenPosition: {x: 3.5, y: 0}
+    panelSize: {x: -550, y: -400}
+  - title: Shop
+    message: You will also come across the shop. Use the coins you've earnd to buu
+      upgrades.
+    screenPosition: {x: 3.5, y: 0}
+    panelSize: {x: -550, y: -400}
+  - title: End
+    message: This ends the tutorial. Feel free to test out battling in this tutorial
+      level or go back to the main menu thought the pause button.
+    screenPosition: {x: 3.5, y: 0}
     panelSize: {x: -550, y: -400}
 --- !u!114 &267051572
 MonoBehaviour:
