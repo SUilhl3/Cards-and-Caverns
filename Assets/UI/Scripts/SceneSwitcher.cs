@@ -104,7 +104,7 @@ public class SceneSwitcher : MonoBehaviour
         PlayerPrefs.Save();
     }
 
-    public void LoadBoss()
+    public void BackToMap()
     {
         StatsManager.Rest();
     }

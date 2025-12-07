@@ -125,12 +125,14 @@ public class CombatManager : MonoBehaviour
             //if first battle scene go to second
             if (SceneManager.GetActiveScene().buildIndex == 1)
             {
-                SceneManager.LoadScene(5);
+                //SceneManager.LoadScene(5);
+                SceneManager.LoadScene("levelSelect");
             }
             //if second battle scene go to rest scene
             if (SceneManager.GetActiveScene().buildIndex == 5)
             {
-                SceneManager.LoadScene(6);
+                //SceneManager.LoadScene(6);
+                SceneManager.LoadScene("levelSelect");
             }
 
             //if done the game go to end game (transition to 7/boss done in rest scene)

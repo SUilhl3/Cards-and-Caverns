@@ -57,6 +57,6 @@ public class StatsManager : MonoBehaviour
     public void Rest()
     {
         currentHealth = maxHealth;
-        SceneManager.LoadScene(7);
+        SceneManager.LoadScene("levelSelect");
     }
 }
