@@ -686,7 +686,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 191001484}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1725828543}
+        m_TargetAssemblyTypeName: Boss2, Assembly-CSharp
+        m_MethodName: LoadBoss
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &191001484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1467,7 +1479,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 963707206}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1747972590}
+        m_TargetAssemblyTypeName: Boss, Assembly-CSharp
+        m_MethodName: LoadBoss
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &963707206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1719,7 +1743,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1192151049}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1725828544}
+        m_TargetAssemblyTypeName: Boss, Assembly-CSharp
+        m_MethodName: LoadBoss
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1192151049
 MonoBehaviour:
   m_ObjectHideFlags: 0
