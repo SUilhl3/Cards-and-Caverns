@@ -8,13 +8,17 @@ public class MenuController : MonoBehaviour
     void Start()
     {
         menuCanvas.SetActive(false);
+        Time.timeScale = 1f; 
     }
 
     void Update()
     {
         if (Keyboard.current.tabKey.wasPressedThisFrame)
         {
-            menuCanvas.SetActive(!menuCanvas.activeSelf);
+            bool newState = !menuCanvas.activeSelf;
+            menuCanvas.SetActive(newState);
+
+            Time.timeScale = newState ? 0f : 1f;
         }
     }
 }

@@ -1,9 +1,9 @@
 using UnityEngine;
-[System.Serializable]
+using System;
 
-
-public class SaveData : MonoBehaviour
+[Serializable]
+public class SaveData
 {
-public Vector3 playerPosition;
-public string mapBoundary;
+    public Vector3 playerPosition;
+    public string sceneName;
 }
