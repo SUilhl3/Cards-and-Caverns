@@ -105,8 +105,19 @@ public class CombatManager : MonoBehaviour
 		if (_selected == null) return false;
 		if (player.energy < _selected.Cost) return false;
 		player.energy -= _selected.Cost;
-		CardResolver.Resolve(_selected, player, target);
-		_hand.Remove(_selected);
+
+        if (_selected.Target.Equals(ScriptableCard.TargetType.AllEnemies))
+        {
+            foreach (var enemy in enemyManager.Enemies)
+            {
+                CardResolver.Resolve(_selected, player, enemy);
+            }
+        }
+        else
+        {
+            CardResolver.Resolve(_selected, player, target);
+        }
+        _hand.Remove(_selected);
 		_discard.Add(_selected);
 		_selected = null;
 		CleanupDeaths();
