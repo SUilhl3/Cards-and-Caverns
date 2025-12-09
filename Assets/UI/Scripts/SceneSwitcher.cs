@@ -29,7 +29,7 @@ public class SceneSwitcher : MonoBehaviour
     public void LoadOptions()
     {
         PlayerPrefs.Save();
-        SceneManager.LoadScene(OptionsSceneIndex);
+        SceneManager.LoadScene(4);
     }
 
     public void CloseOptionsAndReturn()
@@ -85,11 +85,12 @@ public class SceneSwitcher : MonoBehaviour
 
     public void LoadLastScene()
     {
-        if (PlayerPrefs.HasKey(LastSceneKey))
-        {
-            int lastSceneIndex = PlayerPrefs.GetInt(LastSceneKey);
-            SceneManager.LoadScene(lastSceneIndex);
-        }
+        // if (PlayerPrefs.HasKey(LastSceneKey))
+        // {
+        //     int lastSceneIndex = PlayerPrefs.GetInt(LastSceneKey);
+        //     SceneManager.LoadScene(lastSceneIndex);
+        // }
+        SceneManager.LoadScene(StatsManager.instance.LastSceneName);
     }
 
     public void QuitGame()

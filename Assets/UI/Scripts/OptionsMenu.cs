@@ -20,6 +20,7 @@ public class OptionsMenu : MonoBehaviour
 
     public void ShowSoundPanel()
     {
+        Debug.Log("Pressed Sound Button");
         soundPanel.SetActive(true);
         gameplayPanel.SetActive(false);
         creditsPanel.SetActive(false);
@@ -29,6 +30,8 @@ public class OptionsMenu : MonoBehaviour
 
     public void ShowInputPanel()
     {
+        Debug.Log("Pressed Input Button");
+
         soundPanel.SetActive(false);
         gameplayPanel.SetActive(false);
         creditsPanel.SetActive(false);
@@ -38,6 +41,8 @@ public class OptionsMenu : MonoBehaviour
 
     public void ShowGamePlayPanel()
     {
+        Debug.Log("Pressed GamePlay Button");
+
         soundPanel.SetActive(false);
         gameplayPanel.SetActive(true);
         creditsPanel.SetActive(false);
@@ -47,6 +52,8 @@ public class OptionsMenu : MonoBehaviour
 
     public void ShowCreditsPanel()
     {
+        Debug.Log("Pressed Credits Button");
+
         soundPanel.SetActive(false);
         gameplayPanel.SetActive(false);
         creditsPanel.SetActive(true);
@@ -56,6 +63,8 @@ public class OptionsMenu : MonoBehaviour
 
     public void ShowResetPanel()
     {
+        Debug.Log("Pressed Reset Button");
+
         soundPanel.SetActive(false);
         gameplayPanel.SetActive(true);
         creditsPanel.SetActive(false);

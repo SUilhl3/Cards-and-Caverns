@@ -18,7 +18,7 @@ public class Combatant : MonoBehaviour
 
     public void GainBlock(int amount)
     {
-        block = Mathf.Max(0, block + Mathf.Max(0, amount));
+        block = block + amount;
     }
 
     public void ResetBlock() { block = 0; }

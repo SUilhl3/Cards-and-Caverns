@@ -4,6 +4,10 @@ using UnityEngine.SceneManagement;
 
 public class StatsManager : MonoBehaviour
 {
+    public static StatsManager instance;
+    public string CurrentSceneName;
+    public string LastSceneName;
+
     //Player Stats
     public int maxHealth = 30;
     public int currentHealth = 30;
@@ -13,16 +17,39 @@ public class StatsManager : MonoBehaviour
 
     private void Awake()
     {
-        //player = FindAnyObjectByType<PlayerCombatant>();
-        SceneManager.sceneLoaded += OnSceneLoaded;
+        if (instance)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        instance = this;
+        DontDestroyOnLoad(instance);
 
+        CurrentSceneName = SceneManager.GetActiveScene().name;
+        LastSceneName = CurrentSceneName;
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        UpdateSceneValues(scene);
         player = FindAnyObjectByType<PlayerCombatant>();
         UpdateStats();
+        
     }
+
+    public void UpdateSceneValues(Scene scene)
+    {
+        if(CurrentSceneName == "EndGame" || CurrentSceneName == "EndGameWin" || CurrentSceneName == "OptionsMenu")
+         {
+            
+         }
+        else{LastSceneName = CurrentSceneName;}
+        CurrentSceneName = scene.name;
+        Debug.Log("Scene loaded: " + CurrentSceneName);
+        Debug.Log("Last scene: " + LastSceneName);
+    }
+
     public void UpdateStats()
     {
         if (player == null)
