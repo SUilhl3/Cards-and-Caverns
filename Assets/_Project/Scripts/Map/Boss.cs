@@ -5,12 +5,19 @@ using UnityEngine.UI;
 public class Boss : MonoBehaviour
 {
     public Button returnButton;
+    public int battleID;
+
     public void LoadBoss()
     {
-        if (returnButton != null)
+        if (!BattleProgress.instance.unlocked[battleID])
         {
-            returnButton.interactable = false;
+            Debug.Log("Boss battle locked.");
+            return;
         }
+
+        if (returnButton != null)
+            returnButton.interactable = false;
+
         SceneManager.LoadScene("BossScene");
     }
 }

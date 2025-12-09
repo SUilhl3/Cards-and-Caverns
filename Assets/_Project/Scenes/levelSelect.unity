@@ -2448,6 +2448,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   returnButton: {fileID: 1471552144}
+  battleID: 0
 --- !u!4 &1556300819
 Transform:
   m_ObjectHideFlags: 0
@@ -2484,6 +2485,7 @@ MonoBehaviour:
   - {fileID: 1468258325}
   - {fileID: 963707205}
   - {fileID: 191001483}
+  battleID: 1
 --- !u!114 &1556300821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2496,7 +2498,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f643b9c0cfae6747b82adcef72cf71c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  returnButton: {fileID: 367592362}
+  returnButton: []
+  battleID: 2
 --- !u!114 &1556300822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2510,6 +2513,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   returnButton: {fileID: 1456198928}
+  battleID: 3
 --- !u!1 &1600656725
 GameObject:
   m_ObjectHideFlags: 0
@@ -2899,6 +2903,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   returnButton: {fileID: 1471552144}
+  battleID: 0
 --- !u!114 &1725828540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2913,6 +2918,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   returnButton:
   - {fileID: 1716101307}
+  battleID: 3
 --- !u!114 &1725828541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2925,7 +2931,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f643b9c0cfae6747b82adcef72cf71c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  returnButton: {fileID: 5104401}
+  returnButton: []
+  battleID: 2
 --- !u!114 &1725828542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2945,6 +2952,7 @@ MonoBehaviour:
   - {fileID: 1456198928}
   - {fileID: 367592362}
   - {fileID: 1600656727}
+  battleID: 1
 --- !u!114 &1725828543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2962,6 +2970,7 @@ MonoBehaviour:
   - {fileID: 1716101307}
   - {fileID: 5104401}
   - {fileID: 1192151048}
+  battleID: 5
 --- !u!114 &1725828544
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2975,6 +2984,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   returnButton: {fileID: 1192151048}
+  battleID: 4
 --- !u!1 &1747972586
 GameObject:
   m_ObjectHideFlags: 0
@@ -3007,6 +3017,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   returnButton: {fileID: 1471552144}
+  battleID: 0
 --- !u!4 &1747972588
 Transform:
   m_ObjectHideFlags: 0
@@ -3044,6 +3055,7 @@ MonoBehaviour:
   - {fileID: 1600656727}
   - {fileID: 367592362}
   - {fileID: 1456198928}
+  battleID: 1
 --- !u!114 &1747972590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3057,6 +3069,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   returnButton: {fileID: 1468258325}
+  battleID: 2
 --- !u!1 &1777310665
 GameObject:
   m_ObjectHideFlags: 0
@@ -3357,6 +3370,67 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1851083073}
   m_CullTransparentMesh: 1
+--- !u!1 &1913993883
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1913993885}
+  - component: {fileID: 1913993884}
+  - component: {fileID: 1913993886}
+  m_Layer: 0
+  m_Name: BattleProgressManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1913993884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1913993883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16b8ff8a565d3944aaff2529b2a7bcd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxBattles: 20
+  completed: 01
+  unlocked: 
+--- !u!4 &1913993885
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1913993883}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 935.74884, y: 416.4896, z: -2.581883}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1913993886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1913993883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4181de554a945c4cad3051e75ce88b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  battleID: 0
 --- !u!1 &2003141067
 GameObject:
   m_ObjectHideFlags: 0
@@ -3504,3 +3578,4 @@ SceneRoots:
   - {fileID: 1556300819}
   - {fileID: 49470573}
   - {fileID: 880487144}
+  - {fileID: 1913993885}

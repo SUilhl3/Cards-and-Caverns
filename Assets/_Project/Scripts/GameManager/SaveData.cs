@@ -1,9 +1,12 @@
 using UnityEngine;
-using System;
+using System.Collections;
 
-[Serializable]
+
+[System.Serializable]
 public class SaveData
 {
     public Vector3 playerPosition;
     public string sceneName;
+
+    public int[] completedBattles;
 }

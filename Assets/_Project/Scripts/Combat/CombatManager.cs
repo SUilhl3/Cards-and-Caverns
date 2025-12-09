@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 
 public enum TurnState { PlayerStart, PlayerAct, PlayerEnd, EnemiesStart, EnemiesAct, EnemiesEnd, Victory, Defeat }
+ 
 
 
 public class CombatManager : MonoBehaviour
@@ -13,6 +14,7 @@ public class CombatManager : MonoBehaviour
 	public EnemyManager enemyManager;
     public RelicManager relicManager;
     public StatsManager statsManager;
+	public int battleID;  
     //public StatsManager statsManager;
 	// Optional reference to the Deck UI component. If left null, Deck.Instance will be used.
 	public Deck deck;
@@ -121,6 +123,15 @@ public class CombatManager : MonoBehaviour
             {
                 statsManager.SaveStats();
             }
+		if (BattleProgress.instance != null)
+			{
+				BattleProgress.instance.CompleteBattle(battleID);
+			}
+			else
+			{
+				Debug.LogError("BattleProgress instance is null.");
+			}
+
 
             //if first battle scene go to second
             if (SceneManager.GetActiveScene().buildIndex == 1)
