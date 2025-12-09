@@ -9,16 +9,20 @@ public class Combatant : MonoBehaviour
     public int block = 0;
 
     public TextMeshProUGUI healthText;
+    public TextMeshProUGUI blockText;
 
     protected virtual void Awake()
     {
         currentHealth = maxHealth;
         UpdateHealthText();
+        UpdateBlockText();
     }
 
     public void GainBlock(int amount)
     {
         block = block + amount;
+
+        UpdateBlockText();
     }
 
     public void ResetBlock() { block = 0; }
@@ -30,6 +34,7 @@ public class Combatant : MonoBehaviour
 
         int fromBlock = Mathf.Min(block, dmg);
         block -= fromBlock;
+        UpdateBlockText();
         int hpLoss = dmg - fromBlock;
         if (hpLoss > 0)
             currentHealth = Mathf.Max(0, currentHealth - hpLoss);
@@ -58,6 +63,14 @@ public class Combatant : MonoBehaviour
     {
         if (healthText != null)
             healthText.text = $"{currentHealth}/{maxHealth}";
+    }
+
+    public void UpdateBlockText()
+    {
+        if (blockText != null)
+        {
+            blockText.text = block.ToString();
+        }
     }
 
     void Die()
