@@ -51,6 +51,8 @@ public class EnemyAttack : MonoBehaviour
                 yield return Poison();
                 break;
         }
+
+        target.block = 0;
     }
 
     private IEnumerator Attack()

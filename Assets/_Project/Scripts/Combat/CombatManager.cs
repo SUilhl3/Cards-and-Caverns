@@ -177,13 +177,13 @@ public class CombatManager : MonoBehaviour
         print("Starting Player Turn");
 		player.energy = player.baseEnergyPerTurn;
         player.UpdateEnergyUI();
-		player.block = 0;
         // Draw opening hand of `player.drawPerTurn` on the very first player turn,
         // otherwise draw 1 card per turn.
         int drawAmount = _firstPlayerTurn ? player.drawPerTurn : 1;
 		Draw(drawAmount);
 		_firstPlayerTurn = false;
         _state = TurnState.PlayerAct;
+
 	}
 	public void EndPlayerTurn()
 	{
