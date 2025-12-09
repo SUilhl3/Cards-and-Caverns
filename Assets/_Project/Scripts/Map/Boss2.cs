@@ -14,6 +14,6 @@ public class Boss2 : MonoBehaviour
                 returnButton[b].interactable = false;
             }
         }
-        SceneManager.LoadScene("RestScene");
+        SceneManager.LoadScene("BossScene");
     }
 }

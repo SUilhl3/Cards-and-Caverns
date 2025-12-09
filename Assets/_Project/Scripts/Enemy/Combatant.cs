@@ -40,6 +40,13 @@ public class Combatant : MonoBehaviour
             Die(); 
     }
 
+    public virtual void HealHealth(int amount)
+    {
+        if(currentHealth + amount <= maxHealth){currentHealth = currentHealth + amount;}
+        else if(currentHealth + amount > maxHealth){currentHealth = maxHealth;}
+        UpdateHealthText();
+    }
+
     public virtual void Attack(Combatant target)
     {
         Debug.Log($"{combatantName} attacks {target.combatantName}!");
