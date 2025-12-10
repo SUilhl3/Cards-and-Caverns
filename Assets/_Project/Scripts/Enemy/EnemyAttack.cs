@@ -9,7 +9,7 @@ public class EnemyAttack : MonoBehaviour
     public int attackDamage = 5;
 
     [Header("AI Cycle")]
-    public List<string> actionCycle = new List<string> { "Attack", "Charge",};
+    public List<string> actionCycle = new List<string> { "Attack", "Charge", };
 
     private int currentActionIndex = 0;
     private bool isCharging = false;
@@ -65,11 +65,13 @@ public class EnemyAttack : MonoBehaviour
 
         target.TakeDamage(dmg);
         Debug.Log($"{self.combatantName} attacks {target.combatantName} for {dmg}!");
+        EnemyActionLog.Instance?.LogAction($"{self.combatantName} attacks {target.combatantName} for {dmg} damage!");
     }
 
     private IEnumerator Charge()
     {
         Debug.Log($"{self.combatantName} charges up!");
+        EnemyActionLog.Instance?.LogAction($"{self.combatantName} charges up!");
         animController?.PlayAttack(); //TODO no charge animation yet
         isCharging = true;
         yield return new WaitForSeconds(1f);
@@ -78,6 +80,7 @@ public class EnemyAttack : MonoBehaviour
     private IEnumerator Defend()
     {
         Debug.Log($"{self.combatantName} defends and gains block!");
+        EnemyActionLog.Instance?.LogAction($"{self.combatantName} defends and gains block!");
         self.GainBlock(5);
         yield return new WaitForSeconds(1f);
     }
@@ -85,6 +88,7 @@ public class EnemyAttack : MonoBehaviour
     private IEnumerator Poison()
     {
         Debug.Log($"{self.combatantName} poisons the player!");
+        EnemyActionLog.Instance?.LogAction($"{self.combatantName} poisons the player!");
         //TODO dont have poison animations or mechanics yet (im not sure if someone else has done this)
         yield return new WaitForSeconds(1f);
     }

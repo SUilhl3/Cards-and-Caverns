@@ -212,7 +212,8 @@ public class CombatManager : MonoBehaviour
         if (player.currentHealth <= 0) { SceneManager.LoadScene(8); }
 		_state = TurnState.PlayerEnd;
         DiscardHand();
-		//player.block = 0;
+        EnemyActionLog.Instance?.Clear();
+        //player.block = 0;
         print("Ending Player Turn");
         print("Energy at the End of the Player's Turn: " + player.energy);
 		_state = TurnState.EnemiesStart;
