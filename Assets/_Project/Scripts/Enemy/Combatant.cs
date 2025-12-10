@@ -77,5 +77,6 @@ public class Combatant : MonoBehaviour
     {
         Debug.Log($"{combatantName} has been defeated!");
         gameObject.SetActive(false);
+        BattleProgress.instance.IncrementEnemiesKilled();
     }
 }
