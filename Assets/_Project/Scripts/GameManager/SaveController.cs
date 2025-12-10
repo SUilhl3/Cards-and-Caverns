@@ -5,14 +5,11 @@ public class SaveController : MonoBehaviour
 {
     [Header("Player")]
     public Transform player;
+    public Vector3 startingPosition = Vector3.zero;
 
     public void SaveGame()
     {
-        if (player == null)
-        {
-            Debug.LogWarning("Player transform is not assigned!");
-            return;
-        }
+        if (player == null) return;
 
         SaveData saveData = new SaveData
         {
@@ -25,28 +22,37 @@ public class SaveController : MonoBehaviour
         string json = JsonUtility.ToJson(saveData);
         PlayerPrefs.SetString("SaveData", json);
         PlayerPrefs.Save();
-
-        Debug.Log("Game Saved! Scene: " + saveData.sceneName);
     }
 
     public void LoadGame()
     {
         if (!PlayerPrefs.HasKey("SaveData"))
         {
-            Debug.LogWarning("No save data found!");
+            StartNewGame();
             return;
         }
 
         string json = PlayerPrefs.GetString("SaveData");
         SaveData saveData = JsonUtility.FromJson<SaveData>(json);
 
-        SceneManager.LoadScene(saveData.sceneName);  
-        player.position = saveData.playerPosition; 
+        SceneManager.LoadScene(saveData.sceneName);
+        player.position = saveData.playerPosition;
 
         BattleProgress.instance.battlesWon = saveData.battlesWon;
         BattleProgress.instance.enemiesKilled = saveData.enemiesKilled;
+    }
 
-        Debug.Log("Game Loaded! Scene: " + saveData.sceneName);
+    public void StartNewGame()
+    {
+        BattleProgress.instance.battlesWon = 0;
+        BattleProgress.instance.enemiesKilled = 0;
+
+        if (player != null)
+        {
+            player.position = startingPosition;
+        }
+
+        SceneManager.LoadScene("levelSelect");
     }
 
     public void ReturnToMainMenu()
