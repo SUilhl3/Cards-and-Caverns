@@ -9,9 +9,9 @@ public class Rest : MonoBehaviour
 
     public void LoadRest()
     {
-        if (!BattleProgress.instance.unlocked[battleID])
+        if (battleID > BattleProgress.instance.battlesWon)
         {
-            Debug.Log("Rest Area locked.");
+            Debug.Log("Rest Area for Battle " + battleID + " is locked.");
             return;
         }
 
@@ -21,7 +21,8 @@ public class Rest : MonoBehaviour
 
         SceneManager.LoadScene("RestScene");
     }
-        private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         if (scene.name == "RestScene")
         {

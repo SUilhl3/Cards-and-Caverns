@@ -9,7 +9,7 @@ public class Boss : MonoBehaviour
 
     public void LoadBoss()
     {
-        if (!BattleProgress.instance.unlocked[battleID])
+        if (battleID > BattleProgress.instance.battlesWon)
         {
             Debug.Log("Boss battle locked.");
             return;

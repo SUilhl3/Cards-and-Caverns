@@ -3,14 +3,23 @@ using UnityEngine.SceneManagement;
 
 public class BattleComplete : MonoBehaviour
 {
-    public int battleID; 
+    public int battleID;
 
-    public void PlayerWon()
+    void Start()
     {
-        Debug.Log("Battle " + battleID + " completed!");
-
-        BattleProgress.instance.CompleteBattle(battleID);
-
-        SceneManager.LoadScene("MainMenu");
+        battleID = SceneManager.GetActiveScene().buildIndex;
+        Debug.Log("Battle ID set to: " + battleID);
     }
+
+public void PlayerWon()
+{
+    int id = BattleProgress.instance.currentBattleID;
+
+    Debug.Log("Battle " + id + " completed!");
+
+    BattleProgress.instance.CompleteBattle(id);
+
+    SceneManager.LoadScene("levelSelect");
+}
+
 }

@@ -17,7 +17,9 @@ public class SaveController : MonoBehaviour
         SaveData saveData = new SaveData
         {
             playerPosition = player.position,
-            sceneName = SceneManager.GetActiveScene().name
+            sceneName = SceneManager.GetActiveScene().name,
+            battlesWon = BattleProgress.instance.battlesWon,
+            enemiesKilled = BattleProgress.instance.enemiesKilled
         };
 
         string json = JsonUtility.ToJson(saveData);
@@ -37,11 +39,18 @@ public class SaveController : MonoBehaviour
 
         string json = PlayerPrefs.GetString("SaveData");
         SaveData saveData = JsonUtility.FromJson<SaveData>(json);
-        SceneManager.LoadScene(saveData.sceneName);
+
+        SceneManager.LoadScene(saveData.sceneName);  
+        player.position = saveData.playerPosition; 
+
+        BattleProgress.instance.battlesWon = saveData.battlesWon;
+        BattleProgress.instance.enemiesKilled = saveData.enemiesKilled;
+
+        Debug.Log("Game Loaded! Scene: " + saveData.sceneName);
     }
 
     public void ReturnToMainMenu()
     {
-        SceneManager.LoadScene("MainMenu"); 
+        SceneManager.LoadScene("MainMenu");
     }
 }

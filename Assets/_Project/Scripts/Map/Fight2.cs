@@ -4,21 +4,21 @@ using UnityEngine.UI;
 
 public class Fight2 : MonoBehaviour
 {
-    public Button[] returnButton;
-    public int battleID;  
+    public Button returnButton;
+    public int battleID;
 
     public void LoadBattle()
     {
-        if (!BattleProgress.instance.unlocked[battleID])
+        if (battleID > BattleProgress.instance.battlesWon)
         {
             Debug.Log("Battle " + battleID + " is locked.");
             return;
         }
+        BattleProgress.instance.currentBattleID = battleID;
 
-        for (int i = 0; i < returnButton.Length; i++)
-            if (returnButton[i] != null)
-                returnButton[i].interactable = false;
+        if (returnButton != null)
+            returnButton.interactable = false;
 
-        SceneManager.LoadScene("BattleScene2");
+        SceneManager.LoadScene("BattleScene");
     }
 }

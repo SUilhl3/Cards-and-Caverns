@@ -5,15 +5,17 @@ using UnityEngine.UI;
 public class Fight : MonoBehaviour
 {
     public Button returnButton;
-    public int battleID; 
+    public int battleID;
 
     public void LoadBattle()
     {
-        if (!BattleProgress.instance.unlocked[battleID])
+        if (battleID > BattleProgress.instance.battlesWon)
         {
             Debug.Log("Battle " + battleID + " is locked.");
             return;
         }
+
+        BattleProgress.instance.currentBattleID = battleID;
 
         if (returnButton != null)
             returnButton.interactable = false;
