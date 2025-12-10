@@ -151,6 +151,62 @@ public class CardMovement : MonoBehaviour, IDragHandler, IEndDragHandler, IBegin
             }
         }
 
+        //trying to get cards that target self or all enemies to work by dropping in top half of screen, delete if it breaks something
+        bool droppedInTopHalf = eventData.position.y >= (Screen.height * 0.5f);
+
+        var cmFallback = UnityEngine.Object.FindAnyObjectByType<CombatManager>();
+        var cardData = _card.CardData;
+        if (cmFallback != null && cardData != null)
+        {
+            if (cardData.Target == ScriptableCard.TargetType.Self)
+            {
+                if (!droppedInTopHalf)
+                {
+                    StartCoroutine(PlayFailureAndReturn());
+                    if (Deck.Instance != null) Deck.Instance.UpdateHandLayout(false);
+                    return;
+                }
+
+                var played = cmFallback.PlayCard(_card, cmFallback.player);
+                if (played)
+                {
+                    StartCoroutine(PlaySuccessAndDiscard(_card));
+                    if (Deck.Instance != null) Deck.Instance.UpdateHandLayout(false);
+                    return;
+                }
+                else
+                {
+                    StartCoroutine(PlayFailureAndReturn());
+                    if (Deck.Instance != null) Deck.Instance.UpdateHandLayout(false);
+                    return;
+                }
+            }
+
+            if (cardData.Target == ScriptableCard.TargetType.AllEnemies || cardData.Target == ScriptableCard.TargetType.None)
+            {
+                if (!droppedInTopHalf)
+                {
+                    StartCoroutine(PlayFailureAndReturn());
+                    if (Deck.Instance != null) Deck.Instance.UpdateHandLayout(false);
+                    return;
+                }
+
+                var played = cmFallback.PlayCard(_card, null);
+                if (played)
+                {
+                    StartCoroutine(PlaySuccessAndDiscard(_card));
+                    if (Deck.Instance != null) Deck.Instance.UpdateHandLayout(false);
+                    return;
+                }
+                else
+                {
+                    StartCoroutine(PlayFailureAndReturn());
+                    if (Deck.Instance != null) Deck.Instance.UpdateHandLayout(false);
+                    return;
+                }
+            }
+        }
+
         // Default behaviour (no target found): snap back to original anchored position
         StartCoroutine(PlayFailureAndReturn());
         if (Deck.Instance != null) Deck.Instance.UpdateHandLayout(false);
