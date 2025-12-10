@@ -7,7 +7,7 @@ public class Rest2 : MonoBehaviour
     public Button[] returnButton;
     public int battleID;
 
-    public void LoadBoss()
+    public void LoadRest()
     {
         if (!BattleProgress.instance.unlocked[battleID])
         {
