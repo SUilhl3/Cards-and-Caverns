@@ -1,12 +1,19 @@
 using UnityEngine;
+using TMPro;
 
 public class BattleProgress : MonoBehaviour
 {
     public static BattleProgress instance;
 
-    public int maxBattles = 20;    
-    public bool[] completed;     
-    public bool[] unlocked;      
+    public int maxBattles = 20;
+    public bool[] completed;
+    public bool[] unlocked;
+
+    public int battlesWon = 0;
+    public int enemiesKilled = 0;
+
+    public delegate void ProgressUpdated();
+    public static event ProgressUpdated OnProgressUpdated;
 
     private void Awake()
     {
@@ -22,7 +29,7 @@ public class BattleProgress : MonoBehaviour
         completed = new bool[maxBattles];
         unlocked = new bool[maxBattles];
 
-        Load();
+        Load(); 
     }
 
     public void CompleteBattle(int id)
@@ -30,17 +37,30 @@ public class BattleProgress : MonoBehaviour
         if (id < 0 || id >= maxBattles) return;
 
         completed[id] = true;
-
+        battlesWon++;
         if (id + 1 < unlocked.Length)
             unlocked[id + 1] = true;
 
         Save();
+
+        OnProgressUpdated?.Invoke();
+    }
+
+    public void IncrementEnemiesKilled()
+    {
+        enemiesKilled++;
+        OnProgressUpdated?.Invoke();
     }
 
     public void Save()
     {
-        SaveData data = new SaveData();
-        data.completedBattles = GetCompletedList();
+        SaveData data = new SaveData
+        {
+            completedBattles = GetCompletedList(),
+            battlesWon = battlesWon,
+            enemiesKilled = enemiesKilled
+        };
+
         PlayerPrefs.SetString("BattleProgress", JsonUtility.ToJson(data));
         PlayerPrefs.Save();
     }
@@ -66,12 +86,16 @@ public class BattleProgress : MonoBehaviour
                     unlocked[id + 1] = true;
             }
         }
+
+        battlesWon = data.battlesWon;
+        enemiesKilled = data.enemiesKilled;
+
+        OnProgressUpdated?.Invoke();
     }
 
     private int[] GetCompletedList()
     {
         int count = 0;
-
         for (int i = 0; i < completed.Length; i++)
             if (completed[i]) count++;
 
@@ -83,4 +107,16 @@ public class BattleProgress : MonoBehaviour
 
         return result;
     }
+   public void IncrementProgressForRestScene()
+    {
+        for (int i = 0; i < maxBattles; i++)
+        {
+            if (!completed[i] && unlocked[i])
+            {
+                CompleteBattle(i);
+                Debug.Log("Battle " + i + " marked as completed via rest scene.");
+                break;  
+            }
+        }
+}
 }

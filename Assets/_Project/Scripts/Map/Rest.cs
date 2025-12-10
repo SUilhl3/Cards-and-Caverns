@@ -21,4 +21,11 @@ public class Rest : MonoBehaviour
 
         SceneManager.LoadScene("RestScene");
     }
+        private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name == "RestScene")
+        {
+            BattleProgress.instance.IncrementProgressForRestScene();
+        }
+    }
 }
